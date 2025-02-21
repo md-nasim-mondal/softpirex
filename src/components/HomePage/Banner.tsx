@@ -2,7 +2,7 @@
 
 import Image from 'next/image';
 
-export default function WebAgencyTemplate() {
+export default function Banner() {
   return (
     <div className="relative min-h-screen bg-gradient-to-br from-gray-900 to-black text-white p-10 flex flex-col items-center justify-center">
       {/* Container for images and text */}
