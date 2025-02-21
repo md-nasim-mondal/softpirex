@@ -28,14 +28,17 @@ export default function FeaturesSection() {
         <p className="text-gray-400 uppercase">Build With Incredible</p>
         <h2 className="text-4xl font-bold">Incredible Unique Features</h2>
       </div>
+
+      {/* Features Grid */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8 px-6 md:px-10 max-w-6xl mx-auto">
         {features.map((feature, index) => (
           <motion.div
             key={index}
-            className="bg-gray-900 p-6 rounded-xl flex flex-col items-start text-left"
+            className="bg-gray-900 p-6 rounded-xl flex flex-col items-start text-left shadow-lg"
             initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: index * 0.2 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: index * 0.2 }}
+            viewport={{ once: false, amount: 0.3 }} // Ensures animation triggers every time
           >
             <div className="w-20 h-20 border bg-black rounded-full flex items-center justify-center mb-4">
               <Image src={feature.image} alt={feature.title} width={40} height={40} className="rounded-full" />
@@ -45,8 +48,10 @@ export default function FeaturesSection() {
           </motion.div>
         ))}
       </div>
+
+      {/* Scrolling Text Animation */}
       <motion.div
-        className="absolute mt-5 mb-8 inset-x-0 text-center text-white font-bold bg-gradient-to-r from-transparent to-transparent 
+        className="absolute bottom-8 inset-x-0 text-center text-white font-bold bg-gradient-to-r from-transparent to-transparent 
         text-[2rem] md:text-[4rem] whitespace-nowrap"
         initial={{ x: '100%' }}
         animate={{ x: '-100%' }}
