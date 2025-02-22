@@ -31,8 +31,8 @@ const features = [
 ];
 
 const FeatureCard = ({ title, description, icon }: { title: string; description: string; icon: JSX.Element }) => (
-  <div className="bg-gray-900 p-6 rounded-xl text-center shadow-md hover:shadow-lg transition-all">
-    <div className="mb-4">{icon}</div>
+  <div className="p-6 rounded-xl text-center shadow-md hover:shadow-lg transition-all">
+    <div className="flex items-center justify-center w-24 h-24 mx-auto mb-4 bg-white rounded-full">{icon}</div>
     <h3 className="text-white font-bold text-lg">{title}</h3>
     <p className="text-gray-400 text-sm">{description}</p>
   </div>
@@ -42,10 +42,11 @@ const CoreFeatures = () => {
   return (
     <section className="bg-black text-white py-16">
       <div className="container mx-auto px-6">
-        <h2 className="text-center text-3xl font-bold mb-6">
-          We Have Lots of Theme Core Features
+        <p className="text-white uppercase mb-4 text-center">Build With Incredible</p>
+        <h2 className=" md:text-6xl font-bold leading-tight w-full lg:w-[660px] mx-auto text-center mb-6">
+          We Have Lots Of Theme Core Features
         </h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 ">
           {features.map((feature, index) => (
             <FeatureCard key={index} {...feature} />
           ))}
