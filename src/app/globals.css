@@ -19,3 +19,34 @@ body {
   background: var(--background);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+@keyframes floatAnimationY {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateX(-10px);
+  }
+}
+@keyframes floatAnimationX {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+
+.animate-float-y {
+  animation: floatAnimationX 3s infinite ease-in-out;
+}
+.animate-float-x {
+  animation: floatAnimationY 3s infinite ease-in-out;
+}
+
+.box-shadow{
+  box-shadow: 0px 0px 1px rgb(160, 160, 160);
+}
