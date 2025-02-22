@@ -4,6 +4,7 @@ import CoreFeatures from "@/components/HomePage/CoreFeatures";
 import HeroSection from "@/components/HomePage/Demos";
 import FeaturesSection from "@/components/HomePage/Features";
 import SellYourProducts from "@/components/HomePage/SellYourProducts";
+import Template from "@/components/HomePage/Template";
 
 export default function Home() {
   return (
@@ -12,6 +13,7 @@ export default function Home() {
       <FeaturesSection />
       <HeroSection />
       <CoreFeatures></CoreFeatures>
+      <Template></Template>
       <SellYourProducts/>
       <ClientsReviews/>
     </div>
