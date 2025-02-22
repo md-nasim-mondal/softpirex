@@ -1,7 +1,7 @@
 import { connectDB } from "@/database/dbConfig";
 import Users from "@/models/userModel";
 import bcrypt from "bcryptjs";
-import { NextAuthOptions } from "next-auth";
+import { NextAuthOptions, User } from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
 import GoogleProvider from "next-auth/providers/google";
 import GitHubProvider from "next-auth/providers/github";
@@ -29,7 +29,7 @@ export const authOptions: NextAuthOptions = {
 
           // Check if user exists
           if (!user) {
-            throw new Error("Invalid Credentials!");
+            return null;
           }
 
           // Check if the user's email is verified
@@ -40,18 +40,22 @@ export const authOptions: NextAuthOptions = {
           // Check if the password is correct
           const isPasswordValid = await bcrypt.compare(password, user.password);
           if (!isPasswordValid) {
-            throw new Error("Invalid Credentials!");
+            return null;
           }
 
           // Return the user object if everything is valid
-          return user;
+          return {
+            id: user._id.toString(), // Ensure `id` is a string
+            name: user.name,
+            email: user.email,
+            image: user.image,
+            role: user.role,
+            provider: user.provider,
+            isVerified: user.isVerified,
+          } as User;
         } catch (error) {
           console.error("Authorization error:", error);
-          throw new Error(
-            error instanceof Error
-              ? error.message
-              : "An error occurred during login."
-          );
+          return null;
         }
       },
     }),
@@ -92,25 +96,25 @@ export const authOptions: NextAuthOptions = {
     },
     async jwt({ token, user }) {
       if (user) {
-        token.id = user.id;
+        token.id = user._id.toString();
         token.name = user.name;
         token.email = user.email;
-        // token.role = user.role;
+        token.role = user.role;
         token.image = user.image;
-        // token.provider = user.provider; // Add provider to the token
-        // token.isVerified = user.isVerified; // Add isVerified to the token
+        token.provider = user.provider; // Add provider to the token
+        token.isVerified = user.isVerified; // Add isVerified to the token
       }
       return token;
     },
     async session({ session, token }) {
       if (token && session.user) {
-        // session.user.id = token.id;
-        session.user.name = token.name;
-        session.user.email = token.email;
-        // session.user.role = token.role;
-        // session.user.image = token.image;
-        // session.user.provider = token.provider; // Add provider to the session
-        // session.user.isVerified = token.isVerified; // Add isVerified to the session
+        session.user.id = token.id as string;
+        session.user.name = token.name as string;
+        session.user.email = token.email as string;
+        session.user.role = token.role as string;
+        session.user.image = token.image as string;
+        session.user.provider = token.provider as string;
+        session.user.isVerified = token.isVerified as boolean;
       }
       return session;
     },
@@ -124,14 +128,4 @@ export const authOptions: NextAuthOptions = {
 interface Credentials {
   email: string;
   password: string;
-}
-
-interface User {
-  id: string;
-  name: string;
-  email: string;
-  image: string;
-  role?: string;
-  provider?: string; // Add provider to the User interface
-  isVerified: boolean; // Add isVerified to the User interface
 }
