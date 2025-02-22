@@ -45,20 +45,19 @@ const Login = () => {
   const handleLogin: SubmitHandler<LoginFormInputs> = async (userData) => {
     setUserLoading(true);
     try {
-        const res = await signIn("credentials", {
-          redirect: false,
-          email: userData.email,
-          password: userData.password,
-        });
+      const res = await signIn("credentials", {
+        redirect: false,
+        email: userData.email,
+        password: userData.password,
+      });
 
-        console.log(res);
-
-        if(res?.status === 200){
-          toast.success("Successfully Login!")
-          router.push(from)
-        }else{
-          toast.error(res?.error as string)
-        }
+      if (res?.status === 200) {
+        toast.success("Successfully Login!");
+        router.push(from);
+      } else {
+        const err = res?.error as string;
+        toast.error(err.replace("Error:", "").trim());
+      }
     } catch (error) {
       if (error instanceof Error) {
         toast.error(error.message);

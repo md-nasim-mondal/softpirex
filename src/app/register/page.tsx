@@ -1,5 +1,4 @@
 "use client";
-
 import { useEffect, useState } from "react";
 import { FaEye, FaEyeSlash, FaUserEdit } from "react-icons/fa";
 import { useForm, SubmitHandler } from "react-hook-form";
@@ -12,7 +11,6 @@ import useImageUpload from "@/hooks/useImageUpload";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 import axios from "axios";
-
 // Define the form input types
 interface RegistrationFormInputs {
   name: string;
@@ -24,7 +22,7 @@ interface RegistrationFormInputs {
 const Register = () => {
   const [showPassword, setShowPassword] = useState(false);
   const [registerLoading, setRegisterLoading] = useState(false);
-  const { uploadImage, imageUploading, imageUploadError } = useImageUpload();
+  const {  uploadImage, imageUploading, imageUploadError } = useImageUpload();
   const router = useRouter();
   const [imageFileName, setImageFileName] = useState(
     "Upload Your Profile Picture"
@@ -94,7 +92,7 @@ const Register = () => {
       try {
         const { data } = await axios.post(
           `${process.env.NEXT_PUBLIC_BASE_URL}/api/register`,
-         userData
+          userData
         );
         if (data.status === 200) {
           toast.success(data.message);
@@ -273,7 +271,7 @@ const Register = () => {
           <p className='text-center text-sm md:text-base font-medium'>
             Already have an Account?{" "}
             <Link
-              href='/sign-in'
+              href='/login'
               className='hover:pl-4 text-[#3c5cc3] font-bold hover:text-white transition-all duration-500'>
               Login Here!
             </Link>

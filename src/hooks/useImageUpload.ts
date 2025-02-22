@@ -1,3 +1,4 @@
+"use client"
 import axios from "axios";
 import { useState } from "react";
 
@@ -26,9 +27,11 @@ const useImageUpload = (): UseImageUploadReturn => {
     setImageUploading(true); // Set loading to true
     setImageUploadError(null); // Reset any previous errors
 
+    console.log(process.env.NEXT_PUBLIC_IMGBB_API_KEY);
+
     try {
       const { data } = await axios.post<ImageUploadResponse>(
-        `https://api.imgbb.com/1/upload?key=${process.env.IMGBB_API_KEY}`,
+        `https://api.imgbb.com/1/upload?key=${process.env.NEXT_PUBLIC_IMGBB_API_KEY}`,
         formData,
         {
           headers: {

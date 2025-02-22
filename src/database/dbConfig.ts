@@ -3,8 +3,10 @@ import mongoose from "mongoose";
 export const connectDB = async () => {
   try {
     // Validate environment variable
-    if (!process.env.MONGO_URI) {
-      throw new Error("MONGO_URI environment variable is not defined");
+    if (!process.env.NEXT_PUBLIC_MONGO_URI) {
+      throw new Error(
+        "NEXT_PUBLIC_MONGO_URI environment variable is not defined"
+      );
     }
 
     const connection = mongoose.connection;
@@ -20,7 +22,7 @@ export const connectDB = async () => {
     });
 
     // Connect to MongoDB
-    await mongoose.connect(process.env.MONGO_URI as string, {
+    await mongoose.connect(process.env.NEXT_PUBLIC_MONGO_URI as string, {
       dbName: "softpirexDB",
     });
 

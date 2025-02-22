@@ -29,8 +29,8 @@ export const authOptions: NextAuthOptions = {
             throw new Error("Invalid Credentials!");
           }
           if (!user?.isVerified) {
-                throw new Error("Please verify your email!");
-              }
+            throw new Error("Please verify your email!");
+          }
           const matchPassword = await bcrypt.compare(password, user?.password);
           if (!matchPassword) {
             throw new Error("Invalid Credentials!");
@@ -93,7 +93,7 @@ export const authOptions: NextAuthOptions = {
     strategy: "jwt",
     maxAge: 30 * 24 * 60 * 60,
   },
-  secret: process.env.JWT_SECRET,
+  secret: process.env.NEXT_PUBLIC_JWT_SECRET,
 };
 
 interface Credentials {
