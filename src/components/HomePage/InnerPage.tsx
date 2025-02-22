@@ -7,8 +7,8 @@ const cards = Array.from({ length: 12 }, (_, i) => ({ id: i + 1 }));
 
 export default function SlidingCards() {
   return (
-    <div className="relative min-h-screen overflow-hidden py-10">
-      <h2 className="text-white text-center text-4xl font-bold mb-6">
+    <div className="relative min-h-screen bg-blue-500 overflow-hidden py-10">
+      <h2 className="text-white text-center text-4xl font-bold mb-6 mt-6">
         Pre-Built Inner Pages Ready
       </h2>
 
@@ -27,8 +27,8 @@ export default function SlidingCards() {
               <Image
                 src="https://i.ibb.co.com/1GK392m7/mobile-phone.jpg"
                 alt="image"
-                width={500} // Match the parent width
-                height={320} // Match the parent height
+                width={500} 
+                height={320} 
                 style={{ objectFit: "cover" }}
                 className="w-full h-full rounded-lg"
               />
@@ -58,8 +58,8 @@ export default function SlidingCards() {
               <Image
                 src="https://i.ibb.co.com/1GK392m7/mobile-phone.jpg"
                 alt="image"
-                width={500} // Match the parent width
-                height={320} // Match the parent height
+                width={500} 
+                height={320} 
                 style={{ objectFit: "cover" }}
                 className="w-full h-full rounded-lg"
               />
