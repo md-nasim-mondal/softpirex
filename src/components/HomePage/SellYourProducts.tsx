@@ -6,7 +6,7 @@ import { FaArrowRight } from "react-icons/fa6";
 const SellYourProducts: FC = () => {
   return (
     <section className="bg-[#02050A] py-24">
-      <div className="container bg-[#07090D] mx-auto px-6 py-16 md:p-12 lg:p-24 md:flex box-shadow rounded-sm">
+      <div className="container bg-[#07090D] mx-auto px-6 py-16 md:p-12 lg:p-24 md:flex rounded-sm">
         {/* Main Content Section */}
         <div className="space-y-6 mb-8 text-white  w-full md:w-1/2">
           <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold mb-4">

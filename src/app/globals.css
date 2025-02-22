@@ -46,7 +46,3 @@ body {
 .animate-float-x {
   animation: floatAnimationY 3s infinite ease-in-out;
 }
-
-.box-shadow{
-  box-shadow: 0px 0px 1px rgb(160, 160, 160);
-}
