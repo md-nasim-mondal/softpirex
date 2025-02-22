@@ -16,7 +16,7 @@ interface UseImageUploadReturn {
   imageUploadError: string | null;
 }
 
-const useImageUpload = (): UseImageUploadReturn => {
+const useUploadImage = (): UseImageUploadReturn => {
   const [imageUploading, setImageUploading] = useState(false); // Track loading state
   const [imageUploadError, setImageUploadError] = useState<string | null>(null); // Track errors
 
@@ -53,4 +53,4 @@ const useImageUpload = (): UseImageUploadReturn => {
   return { uploadImage, imageUploading, imageUploadError }; // Return the function and state
 };
 
-export default useImageUpload;
+export default useUploadImage;

@@ -7,7 +7,7 @@ import toast from "react-hot-toast";
 import { MdEmail, MdImage } from "react-icons/md";
 import { RiLockPasswordFill } from "react-icons/ri";
 import { buttonLoader } from "@/components/LoadingSpinners/Loaders";
-import useImageUpload from "@/hooks/useImageUpload";
+import useUploadImage from "@/hooks/useUploadImage";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 import axios from "axios";
@@ -22,7 +22,7 @@ interface RegistrationFormInputs {
 const Register = () => {
   const [showPassword, setShowPassword] = useState(false);
   const [registerLoading, setRegisterLoading] = useState(false);
-  const {  uploadImage, imageUploading, imageUploadError } = useImageUpload();
+  const {  uploadImage, imageUploading, imageUploadError } = useUploadImage();
   const router = useRouter();
   const [imageFileName, setImageFileName] = useState(
     "Upload Your Profile Picture"
@@ -34,7 +34,7 @@ const Register = () => {
     formState: { errors },
   } = useForm<RegistrationFormInputs>();
 
-  const from = "/"; // Default redirect path after registration
+  const from = "/login"; // Default redirect path after registration
 
   useEffect(() => {
     if (errors.name) {
@@ -103,8 +103,6 @@ const Register = () => {
       } catch (error: unknown) {
         throw new Error(error as string);
       }
-
-      toast.success("Registration successful!");
       router.push(from);
     } catch (error) {
       Swal.fire({
