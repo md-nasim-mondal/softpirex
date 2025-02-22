@@ -16,13 +16,15 @@ const userSchema = new mongoose.Schema(
     },
     password: {
       type: String,
-      required: true,
+      required: [true, "Password is required!!"],
     },
     image: {
       type: String,
     },
     provider: {
       type: String,
+      enum: ["credentials", "google", "github"],
+      default: "credentials",
     },
     role: {
       type: String,

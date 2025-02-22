@@ -11,6 +11,7 @@ import { buttonLoader } from "@/components/LoadingSpinners/Loaders";
 import useImageUpload from "@/hooks/useImageUpload";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
+import axios from "axios";
 
 // Define the form input types
 interface RegistrationFormInputs {
@@ -68,7 +69,7 @@ const Register = () => {
   const handleRegister: SubmitHandler<RegistrationFormInputs> = async (
     data
   ) => {
-    const { picture } = data;
+    const { name, email, picture, password } = data;
     const imageFile = picture[0];
 
     // Set image file name on upload input
@@ -82,21 +83,28 @@ const Register = () => {
       setRegisterLoading(true);
       // Start image upload
       const imageUrl = await uploadImage(imageFile);
-      console.log(imageUrl);
 
-      // TODO: Send registration data to your backend API
-      // Example:
-      // const response = await fetch("/api/register", {
-      //   method: "POST",
-      //   body: JSON.stringify({ name, email, password, imageUrl }),
-      //   headers: { "Content-Type": "application/json" },
-      // });
+      const userData = {
+        name,
+        email,
+        image: imageUrl,
+        password,
+      };
 
-      // if (response.ok) {
-      //   router.push(from);
-      // } else {
-      //   throw new Error("Registration failed");
-      // }
+      try {
+        const { data } = await axios.post(
+          `${process.env.NEXT_PUBLIC_BASE_URL}/api/register`,
+         userData
+        );
+        if (data.status === 200) {
+          toast.success(data.message);
+        } else {
+          toast.error(data.message);
+        }
+        console.log(data);
+      } catch (error: unknown) {
+        throw new Error(error as string);
+      }
 
       toast.success("Registration successful!");
       router.push(from);

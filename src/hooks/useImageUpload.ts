@@ -28,7 +28,7 @@ const useImageUpload = (): UseImageUploadReturn => {
 
     try {
       const { data } = await axios.post<ImageUploadResponse>(
-        `https://api.imgbb.com/1/upload?key=${process.env.IMGBB_API_KEY as string}`,
+        `https://api.imgbb.com/1/upload?key=${process.env.IMGBB_API_KEY}`,
         formData,
         {
           headers: {
