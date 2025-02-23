@@ -1,7 +1,6 @@
 import User from "@/models/userModel";
-import bcrypt from "bcryptjs";
 import nodemailer from "nodemailer";
-import toast from "react-hot-toast";
+import crypto from "crypto";
 
 const transporter = nodemailer.createTransport({
   host: "smtp.gmail.com",
@@ -13,41 +12,35 @@ const transporter = nodemailer.createTransport({
   },
 });
 
-export const SendEmail = async (
-  email: string,
-  emailType: string
-): Promise<string> => {
-  const token = await bcrypt.hash(email, 12);
-  if (emailType === "verify-email") {
-    await User.findOneAndUpdate(
-      {
-        email,
-      },
-      {
-        verifyToken: token,
-        verifyTokenExpire: Date.now() + 60 * 60 * 10000,
-      }
-    );
-  }
-  const mailOptions = {
-    from: process.env.GMAIL_USER as string,
-    to: email,
-    subject: "Verify Email",
-    text: "Please click the link below",
-    html: `Click the link below to <a href="${process.env.NEXT_PUBLIC_BASE_URL}/verify-email?token=${token}">Verify your email address</a>`,
-  };
-  let errorMessage;
-  transporter.sendMail(mailOptions, (error, info) => {
-    if (error) {
-      errorMessage = error.toString();
-    } else {
-      console.log("Email sent: " + info?.response);
-      toast.success("Email sent successfully!");
+export const SendEmail = async (email: string, emailType: string): Promise<string> => {
+  try {
+    // **1. Random Token Generate করা**
+    const token = crypto.randomBytes(32).toString("hex");
+
+    if (emailType === "verify-email") {
+      await User.findOneAndUpdate(
+        { email },
+        {
+          verifyToken: token,
+          verifyTokenExpire: Date.now() + 60 * 60 * 1000, // **১ ঘন্টা**
+        }
+      );
     }
-  });
-  if (errorMessage) {
-    return errorMessage;
-  } else {
+
+    // **2. Mail Options**
+    const mailOptions = {
+      from: process.env.GMAIL_USER as string,
+      to: email,
+      subject: "Verify Your Email",
+      html: `Click the link below to <a href="${process.env.NEXT_PUBLIC_BASE_URL}/verify-email?token=${token}">Verify your email</a>`,
+    };
+
+    // **3. sendMail Async করার জন্য Promise ব্যবহার**
+    await transporter.sendMail(mailOptions);
+
     return "Email sent successfully!";
+  } catch (error) {
+    console.error("Email send error:", error);
+    return error instanceof Error ? error.message : "Unknown error occurred";
   }
 };
