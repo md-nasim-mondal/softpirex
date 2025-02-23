@@ -8,8 +8,8 @@ const transporter = nodemailer.createTransport({
   port: 587,
   secure: false,
   auth: {
-    user: process.env.NEXT_PUBLIC_GMAIL_USER as string,
-    pass: process.env.NEXT_PUBLIC_GMAIL_PASS as string,
+    user: process.env.GMAIL_USER as string,
+    pass: process.env.GMAIL_PASS as string,
   },
 });
 
@@ -30,7 +30,7 @@ export const SendEmail = async (
     );
   }
   const mailOptions = {
-    from: process.env.NEXT_PUBLIC_GMAIL_USER,
+    from: process.env.GMAIL_USER as string,
     to: email,
     subject: "Verify Email",
     text: "Please click the link below",
