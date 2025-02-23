@@ -22,7 +22,8 @@ interface RegistrationFormInputs {
 const Register = () => {
   const [showPassword, setShowPassword] = useState(false);
   const [registerLoading, setRegisterLoading] = useState(false);
-  const {  uploadImage, imageUploading, imageUploadError } = useUploadImage();
+  const [photoUrl, setPhotoURL] = useState("");
+  const { uploadImage, imageUploading, imageUploadError } = useUploadImage();
   const router = useRouter();
   const [imageFileName, setImageFileName] = useState(
     "Upload Your Profile Picture"
@@ -31,6 +32,7 @@ const Register = () => {
   const {
     register,
     handleSubmit,
+    reset,
     formState: { errors },
   } = useForm<RegistrationFormInputs>();
 
@@ -64,55 +66,57 @@ const Register = () => {
     }
   }, [errors, imageUploadError]);
 
+  const handleImageChange = async (e: React.ChangeEvent<HTMLInputElement>) => {
+    e.preventDefault();
+    const image = e.target.files?.[0];
+    if (!image) return;
+
+    const imageUrl = await uploadImage(image);
+    setPhotoURL(imageUrl);
+    setImageFileName(image.name || "Upload Your Profile Picture");
+  };
+
   const handleRegister: SubmitHandler<RegistrationFormInputs> = async (
     data
   ) => {
-    const { name, email, picture, password } = data;
-    const imageFile = picture[0];
-
-    // Set image file name on upload input
-    if (imageFile) {
-      setImageFileName(imageFile.name);
-    } else {
-      setImageFileName("Upload Your Profile Picture");
-    }
-
-    try {
-      setRegisterLoading(true);
-      // Start image upload
-      const imageUrl = await uploadImage(imageFile);
-
-      const userData = {
-        name,
-        email,
-        image: imageUrl,
-        password,
-      };
-
+    const { name, email, password } = data;
+    if (photoUrl) {
       try {
-        const { data } = await axios.post(
-          `${process.env.NEXT_PUBLIC_BASE_URL}/api/register`,
-          userData
-        );
-        if (data.status === 200) {
-          toast.success(data.message);
-        } else {
-          toast.error(data.message);
+        setRegisterLoading(true);
+
+        const userData = {
+          name,
+          email,
+          image: photoUrl,
+          password,
+        };
+
+        try {
+          const { data } = await axios.post(
+            `${process.env.NEXT_PUBLIC_BASE_URL}/api/register`,
+            userData
+          );
+          if (data.status === 200) {
+            toast.success(data.message);
+            reset();
+          } else {
+            toast.error(data.message);
+          }
+          console.log(data);
+        } catch (error: unknown) {
+          throw new Error(error as string);
         }
-        console.log(data);
-      } catch (error: unknown) {
-        throw new Error(error as string);
+        router.push(from);
+      } catch (error) {
+        Swal.fire({
+          title: "Error!",
+          text: error instanceof Error ? error.message : "Registration failed",
+          icon: "error",
+          confirmButtonText: "Close",
+        });
+      } finally {
+        setRegisterLoading(false);
       }
-      router.push(from);
-    } catch (error) {
-      Swal.fire({
-        title: "Error!",
-        text: error instanceof Error ? error.message : "Registration failed",
-        icon: "error",
-        confirmButtonText: "Close",
-      });
-    } finally {
-      setRegisterLoading(false);
     }
   };
 
@@ -196,17 +200,12 @@ const Register = () => {
                     type='file'
                     id='picture'
                     accept='image/jpeg, image/bmp, image/png, image/gif'
-                    onChange={(e) =>
-                      setImageFileName(
-                        e.target.files?.[0]?.name ||
-                          "Upload Your Profile Picture"
-                      )
-                    }
+                    onChange={(e) => handleImageChange(e)}
                   />
                   <label
                     htmlFor='picture'
                     className='px-2 rounded-r-lg py-1 text-gray-500 hover:bg-gray-500 hover:text-white transition-all duration-500 block w-full overflow-hidden whitespace-nowrap overflow-ellipsis absolute top-1/2 left-0 -translate-y-1/2 bg-transparent cursor-pointer'>
-                    {imageFileName}
+                    {imageUploading ? "Image Uploading" : imageFileName}
                   </label>
                 </div>
               </div>
@@ -260,10 +259,14 @@ const Register = () => {
           </div>
           <button
             type='submit'
-            className='text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-semibold rounded-lg text-lg px-5 py-2 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800'
+            className={`text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-semibold rounded-lg text-lg px-5 py-2 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 ${
+              registerLoading || (imageUploading && "bg-gray-200 text-black")
+            }`}
             disabled={registerLoading || imageUploading}>
-            {registerLoading || imageUploading
+            {registerLoading
               ? buttonLoader
+              : imageUploading
+              ? "Image Uploading"
               : "Register New Account"}
           </button>
           <p className='text-center text-sm md:text-base font-medium'>
