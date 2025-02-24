@@ -97,13 +97,13 @@ const Projects: FC = () => {
                   <h3 className="text-xl font-semibold text-gray-900">
                     {project.title}
                   </h3>
-                  <span className="text-sm font-medium text-indigo-600 bg-indigo-50 px-3 py-1 rounded-full">
+                  <span className="text-sm font-medium text-blue-600 bg-blue-50 px-3 py-1 rounded-full">
                     {project.category}
                   </span>
                 </div>
                 <p className="text-gray-600">{project.description}</p>
 
-                <button className="mt-4 inline-flex items-center text-indigo-600 hover:text-indigo-700">
+                <button className="mt-4 inline-flex items-center text-blue-600 hover:text-blue-700">
                   View Project
                 </button>
               </div>
@@ -115,7 +115,7 @@ const Projects: FC = () => {
           <div className="text-center mt-12">
             <button
               onClick={() => setShowAll(true)}
-              className="bg-indigo-600 text-white px-8 py-3 rounded-lg hover:bg-indigo-700 transition-colors duration-300 font-medium"
+              className="bg-blue-600 text-white px-8 py-3 rounded-lg hover:bg-blue-700 transition-colors duration-300 font-medium"
             >
               Load More Projects
             </button>
