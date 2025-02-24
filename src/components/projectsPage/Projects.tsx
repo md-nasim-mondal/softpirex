@@ -1,6 +1,9 @@
 "use client";
 import { FC, useState } from "react";
 import Image from "next/image";
+import { motion } from "framer-motion";
+import Link from "next/link";
+import { GoArrowUpRight } from "react-icons/go";
 
 interface Project {
   id: number;
@@ -70,17 +73,26 @@ const Projects: FC = () => {
     <main className="min-h-screen bg-gray-50">
       <div className="max-w-screen-lg mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <div className="text-center mb-16">
-          <h1 className="text-4xl font-bold text-gray-900 mb-4">
-            Transforming Your Ideas Into Reality
-          </h1>
           <p className="text-xl text-gray-600">Check Out Our Latest Projects</p>
+          <h1 className="text-4xl font-bold text-gray-900 mb-4">
+            Transforming Your Ideas Into Reality With SoftPirex. Check Out Our
+            Latest Projects.
+          </h1>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          {displayedProjects.map((project) => (
-            <div
+          {displayedProjects.map((project, index) => (
+            <motion.div
               key={project.id}
-              className="group relative rounded-xl overflow-hidden hover:shadow-2xl transition-shadow duration-300"
+              initial={{
+                opacity: 0,
+                x: index < 2 ? (index % 2 === 0 ? -50 : 50) : 0,
+                y: index < 2 ? 50 : 50,
+              }}
+              whileInView={{ opacity: 1, x: 0, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.3 }}
+              viewport={{ once: false, amount: 0.3 }}
+              className="group relative rounded-xl overflow-hidden transition-shadow duration-300"
             >
               <div className="relative h-64 overflow-hidden">
                 <Image
@@ -92,22 +104,25 @@ const Projects: FC = () => {
                 <div className="absolute inset-0 bg-black bg-opacity-40 group-hover:bg-opacity-30 transition-opacity duration-300 rounded-xl" />
               </div>
 
-              <div className="p-6">
+              <>
                 <div className="flex items-center justify-between mb-2">
-                  <h3 className="text-xl font-semibold text-gray-900">
+                  <h3 className="text-xl font-semibold text-gray-900 ">
                     {project.title}
                   </h3>
-                  <span className="text-sm font-medium text-blue-600 bg-blue-50 px-3 py-1 rounded-full">
+                  <span className="text-sm font-medium text-blue-600 bg-blue-100 px-3 rounded-full">
                     {project.category}
                   </span>
                 </div>
                 <p className="text-gray-600">{project.description}</p>
 
-                <button className="mt-4 inline-flex items-center text-blue-600 hover:text-blue-700">
-                  View Project
-                </button>
-              </div>
-            </div>
+                <Link
+                  href="#"
+                  className="mt-4 inline-flex items-center bg-blue-100 px-3 py-1 hover:px-6 hover:bg-blue-500 hover:text-white transition-all rounded-full text-blue-600"
+                >
+                  View Project <GoArrowUpRight />
+                </Link>
+              </>
+            </motion.div>
           ))}
         </div>
 
@@ -115,7 +130,7 @@ const Projects: FC = () => {
           <div className="text-center mt-12">
             <button
               onClick={() => setShowAll(true)}
-              className="bg-blue-600 text-white px-8 py-3 rounded-lg hover:bg-blue-700 transition-colors duration-300 font-medium"
+              className="w-full bg-blue-600 text-white px-8 py-2 rounded-full hover:bg-blue-700 transition-colors duration-300 font-medium"
             >
               Load More Projects
             </button>
