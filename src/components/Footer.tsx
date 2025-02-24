@@ -4,7 +4,7 @@ import { TextHoverEffectDemo } from "./TextHoverEffectDemo";
 const Footer = () => {
   return (
     <footer className="w-full pt-10 px-5 lg:px-20 bg-black text-white">
-      <div className="max-w-7xl mx-auto flex flex-col lg:flex-row justify-between items-start lg:items-center">
+      <div className="container mx-auto flex flex-col lg:flex-row justify-between items-start lg:items-center">
         <div>
           <h2 className="text-lg font-bold">SOFTPIREX</h2>
           <p className="text-sm text-gray-400">Made by SOFTPIREX</p>
@@ -72,7 +72,9 @@ const Footer = () => {
           </div>
         </div>
       </div>
-      <div className="border-t border-gray-700 mt-5 pt-5 text-gray-400 text-sm">
+      <div
+        className={` border-t border-gray-700 mt-5 pt-5 text-gray-400 text-sm`}
+      >
         &copy; 2025 SOFTPIREX Inc. All rights reserved.
       </div>
       <TextHoverEffectDemo />
