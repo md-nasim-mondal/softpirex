@@ -1,6 +1,11 @@
 "use client";
 import React, { useRef, useEffect, useState } from "react";
 import { motion } from "framer-motion";
+import { Orbitron } from "next/font/google";
+export const orbitron = Orbitron({
+  weight: "400",
+  subsets: ["latin"],
+});
 
 export const TextHoverEffect = ({
   text,
@@ -91,8 +96,8 @@ export const TextHoverEffect = ({
         y="50%"
         textAnchor="middle"
         dominantBaseline="middle"
-        strokeWidth="1"
-        className="font-[helvetica] font-bold stroke-neutral-200 dark:stroke-neutral-800 fill-transparent text-5xl  "
+        strokeWidth="0.5"
+        className={`${orbitron.className} font-bold stroke-neutral-200 dark:stroke-neutral-800 fill-transparent text-4xl  `}
         style={{ opacity: hovered ? 0.7 : 0 }}
       >
         {text}
@@ -102,8 +107,8 @@ export const TextHoverEffect = ({
         y="50%"
         textAnchor="middle"
         dominantBaseline="middle"
-        strokeWidth="1"
-        className="font-[helvetica] font-bold fill-transparent text-5xl   stroke-neutral-200 dark:stroke-neutral-800"
+        strokeWidth="1.3"
+        className={`${orbitron.className} font-bold fill-transparent text-4xl   stroke-neutral-200 dark:stroke-neutral-800`}
         initial={{ strokeDashoffset: 1000, strokeDasharray: 1000 }}
         animate={{
           strokeDashoffset: 0,
@@ -124,7 +129,7 @@ export const TextHoverEffect = ({
         stroke="url(#textGradient)"
         strokeWidth="1"
         mask="url(#textMask)"
-        className="font-[helvetica] font-bold fill-transparent text-5xl  "
+        className={`${orbitron.className} font-[helvetica] font-bold fill-transparent text-4xl  `}
       >
         {text}
       </text>
