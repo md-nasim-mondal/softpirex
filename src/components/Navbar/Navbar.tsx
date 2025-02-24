@@ -4,6 +4,7 @@ import Link from "next/link";
 import { IoMenuSharp } from "react-icons/io5";
 import { ImCross } from "react-icons/im";
 import { motion } from "framer-motion";
+import Image from "next/image";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -13,8 +14,8 @@ const Navbar = () => {
     { name: "INNER PAGES", path: "/inner-pages" },
     { name: "FEATURES", path: "/features" },
     { name: "TESTIMONIAL", path: "/testimonial" },
-    { name: "Login", path: "/login" },
-    { name: "Register", path: "/register" },
+    { name: "LOGIN", path: "/login" },
+    { name: "REGISTER", path: "/register" },
   ];
 
   return (
@@ -22,7 +23,7 @@ const Navbar = () => {
       <div className='max-w-7xl mx-auto flex justify-between items-center'>
         {/* Logo */}
         <div className='flex items-center space-x-2'>
-          <span className='text-blue-500 text-2xl font-bold'>SOFTPIREX</span>
+          <Image src="/icons/logo.png" alt="Softpirex" height={50} width={150}/>
         </div>
 
         {/* Desktop Menu */}

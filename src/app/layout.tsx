@@ -20,6 +20,7 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "Softpirex",
   description: "A simple web development agency.",
+  icons: "/icons/favicon.png"
 };
 
 export default function RootLayout({
