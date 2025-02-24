@@ -32,23 +32,23 @@ export default function Banner() {
 
   return (
     <motion.div
-      className="relative min-h-screen bg-gradient-to-br from-gray-900 to-black text-white p-10 flex flex-col items-center justify-center"
+      className="relative bg-gradient-to-br from-gray-900 to-black text-white px-10 py-24 flex flex-col items-center justify-center"
       initial={{ opacity: 0, y: 50 }}
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.8 }}
       viewport={{ amount: 0.2 }}
     >
       {/* Container for images and text */}
-      <div className="flex container flex-col md:flex-row items-center justify-between w-full mt-12 space-y-6 md:space-y-0 md:space-x-12">
+      <div className="flex container flex-col md:flex-row items-center justify-between w-full mt-12 space-y-6 md:space-y-0">
         {/* Text Section */}
-        <div className="text-center md:text-left md:w-2/3">
+        <div className="text-left md:w-2/3">
           <p className="text-lg text-gray-400 font-bold uppercase">Created by Envato Creative Heroes</p>
-          <h1 className="text-4xl md:text-7xl font-bold mt-4 text-center">
+          <h1 className="text-3xl lg:text-5xl font-bold mt-4">
             Web Agency <br /> HTML Template
           </h1>
 
           <motion.button
-            className="mt-6 md:mt-12 mb-8 md:mb-16 bg-blue-600 hover:bg-blue-700 px-6 py-3 text-lg font-semibold rounded-lg transition"
+            className="mt-6 lg:mt-12 mb-8 md:mb-16 bg-blue-600 hover:bg-blue-700 px-4 py-1 md:px-6 lg:py-3 text-lg font-semibold rounded-lg transition"
             initial={{ scale: 0.8, opacity: 0 }}
             whileInView={{ scale: 1, opacity: 1 }}
             transition={{ duration: 0.5, delay: 0.3 }}
@@ -58,7 +58,7 @@ export default function Banner() {
           </motion.button>
 
           {/* Stats Section */}
-          <div ref={countUpRef} className="flex mt-10 space-x-6 text-center">
+          <div ref={countUpRef} className="flex mt-10 md:mt-4 lg:mt-10 space-x-6 text-center">
             {[ 
               { number: 24, text: 'Dark & Light Demo' },
               { number: 25, text: 'Dark & Light Inner Pages' },
@@ -83,7 +83,7 @@ export default function Banner() {
         {/* Image Section */}
         <div className="flex flex-col md:flex-row space-y-6 md:space-y-0 md:space-x-6 mt-20">
           <motion.div
-            className="hidden md:block relative w-full h-auto md:w-80 md:h-[500px] transform rotate-[-10deg] shadow-lg mt-10"
+            className="hidden md:block relative transform rotate-[-10deg] shadow-lg mt-10"
             initial={{ opacity: 0, scale: 0.8 }}
             whileInView={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.7, delay: 0.4 }}
@@ -101,7 +101,7 @@ export default function Banner() {
           </motion.div>
 
           <motion.div
-            className="relative w-full md:w-[600px] md:h-[400px] transform rotate-[10deg] shadow-lg mt-16"
+            className="relative  transform rotate-[10deg] shadow-lg mt-16"
             initial={{ opacity: 0, scale: 0.8 }}
             whileInView={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.7, delay: 0.5 }}
@@ -111,7 +111,7 @@ export default function Banner() {
               src="https://i.ibb.co/yzVv18L/banner1.png"
               alt="Laptop View"
               layout="intrinsic"
-              width={600}
+              width={700}
               height={400}
               objectFit="cover"
               className="rounded-lg"

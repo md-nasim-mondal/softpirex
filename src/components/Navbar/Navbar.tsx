@@ -22,14 +22,14 @@ const Navbar = () => {
     <nav className="bg-gradient-to-r from-black via-gray-900 to-black text-white px-6 py-4 shadow-md">
       <div className="max-w-7xl mx-auto flex justify-between items-center">
         {/* Logo */}
-        <div className="flex items-center space-x-2">
+        <Link href="/" className="flex items-center space-x-2">
           <Image
             src="/icons/logo.png"
             alt="Softpirex"
             height={50}
             width={150}
           />
-        </div>
+        </Link>
 
         {/* Desktop Menu */}
         <ul className="hidden md:flex space-x-6 font-semibold tracking-wide">
@@ -57,7 +57,7 @@ const Navbar = () => {
 
         {/* Mobile Menu Button */}
         <button className="md:hidden" onClick={() => setIsOpen(true)}>
-          <IoMenuSharp className="text-xl" />
+          <IoMenuSharp className="text-3xl" />
         </button>
       </div>
 
