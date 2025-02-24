@@ -13,7 +13,7 @@ const Navbar = () => {
     { name: "INNER PAGES", path: "/inner-pages" },
     { name: "FEATURES", path: "/features" },
     { name: "TESTIMONIAL", path: "/testimonial" },
-    { name: "Login", path: "/login" },
+    { name: "Login", path: "/login" },  
     { name: "Register", path: "/register" },
   ];
 
