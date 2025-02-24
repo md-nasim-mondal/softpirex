@@ -70,7 +70,7 @@ const Projects: FC = () => {
   const displayedProjects = showAll ? projects : projects.slice(0, 4);
 
   return (
-    <main className="max-w-screen-lg mx-auto px-4 sm:px-6 lg:px-8 mb-6">
+    <main className="max-w-screen-lg mx-auto px-4 sm:px-6 lg:px-8 my-6">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
         {displayedProjects.map((project) => (
           <motion.div
