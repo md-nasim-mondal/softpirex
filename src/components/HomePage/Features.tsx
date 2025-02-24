@@ -57,7 +57,7 @@ export default function FeaturesSection() {
         animate={{ x: '-100%' }}
         transition={{ duration: 10, repeat: Infinity, ease: 'linear' }}
       >
-        CUSTOMER TESTIMONIAL . CLIENT FEEDBACKS CUSTOM
+        CUSTOMER TESTIMONIAL. CLIENT FEEDBACKS CUSTOM
       </motion.div>
     </section>
   );
