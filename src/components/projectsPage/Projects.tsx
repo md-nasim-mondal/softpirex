@@ -70,73 +70,62 @@ const Projects: FC = () => {
   const displayedProjects = showAll ? projects : projects.slice(0, 4);
 
   return (
-    <main className="min-h-screen bg-gray-50">
-      <div className="max-w-screen-lg mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        <div className="text-center mb-16">
-          <p className="text-xl text-gray-600">Check Out Our Latest Projects</p>
-          <h1 className="text-4xl font-bold text-gray-900 mb-4">
-            Transforming Your Ideas Into Reality With SoftPirex. Check Out Our
-            Latest Projects.
-          </h1>
-        </div>
+    <main className="max-w-screen-lg mx-auto px-4 sm:px-6 lg:px-8 mb-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        {displayedProjects.map((project) => (
+          <motion.div
+            key={project.id}
+            initial={{
+              opacity: 0,
+              y: 50,
+            }}
+            whileInView={{ opacity: 1, x: 0, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.3 }}
+            viewport={{ once: false, amount: 0.3 }}
+            className="group relative rounded-xl overflow-hidden transition-shadow duration-300"
+          >
+            <div className="relative h-64 overflow-hidden">
+              <Image
+                src={project.image}
+                alt={project.title}
+                fill
+                className="object-cover group-hover:scale-125 transition-transform duration-500 rounded-xl"
+              />
+              <div className="absolute inset-0 bg-black bg-opacity-40 group-hover:bg-opacity-30 transition-opacity duration-300 rounded-xl" />
+            </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          {displayedProjects.map((project, index) => (
-            <motion.div
-              key={project.id}
-              initial={{
-                opacity: 0,
-                x: index < 2 ? (index % 2 === 0 ? -50 : 50) : 0,
-                y: index < 2 ? 50 : 50,
-              }}
-              whileInView={{ opacity: 1, x: 0, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.3 }}
-              viewport={{ once: false, amount: 0.3 }}
-              className="group relative rounded-xl overflow-hidden transition-shadow duration-300"
-            >
-              <div className="relative h-64 overflow-hidden">
-                <Image
-                  src={project.image}
-                  alt={project.title}
-                  fill
-                  className="object-cover group-hover:scale-125 transition-transform duration-500 rounded-xl"
-                />
-                <div className="absolute inset-0 bg-black bg-opacity-40 group-hover:bg-opacity-30 transition-opacity duration-300 rounded-xl" />
+            <>
+              <div className="flex items-center justify-between mb-2">
+                <h3 className="text-xl font-semibold text-gray-900 ">
+                  {project.title}
+                </h3>
+                <span className="text-sm font-medium text-blue-600 bg-blue-100 px-3 rounded-full">
+                  {project.category}
+                </span>
               </div>
+              <p className="text-gray-600">{project.description}</p>
 
-              <>
-                <div className="flex items-center justify-between mb-2">
-                  <h3 className="text-xl font-semibold text-gray-900 ">
-                    {project.title}
-                  </h3>
-                  <span className="text-sm font-medium text-blue-600 bg-blue-100 px-3 rounded-full">
-                    {project.category}
-                  </span>
-                </div>
-                <p className="text-gray-600">{project.description}</p>
-
-                <Link
-                  href="#"
-                  className="mt-4 inline-flex items-center bg-blue-100 px-3 py-1 hover:px-6 hover:bg-blue-500 hover:text-white transition-all rounded-full text-blue-600"
-                >
-                  View Project <GoArrowUpRight />
-                </Link>
-              </>
-            </motion.div>
-          ))}
-        </div>
-
-        {!showAll && (
-          <div className="text-center mt-12">
-            <button
-              onClick={() => setShowAll(true)}
-              className="w-full bg-blue-600 text-white px-8 py-2 rounded-full hover:bg-blue-700 transition-colors duration-300 font-medium"
-            >
-              Load More Projects
-            </button>
-          </div>
-        )}
+              <Link
+                href="#"
+                className="mt-4 inline-flex items-center bg-blue-100 px-3 py-1 hover:px-6 hover:bg-blue-500 hover:text-white transition-all rounded-full text-blue-600"
+              >
+                View Project <GoArrowUpRight />
+              </Link>
+            </>
+          </motion.div>
+        ))}
       </div>
+
+      {!showAll && (
+        <div className="text-center mt-12">
+          <button
+            onClick={() => setShowAll(true)}
+            className="w-full bg-blue-600 text-white px-8 py-2 rounded-full hover:bg-blue-700 transition-colors duration-300 font-medium"
+          >
+            Load More Projects
+          </button>
+        </div>
+      )}
     </main>
   );
 };
