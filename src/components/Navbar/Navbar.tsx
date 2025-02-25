@@ -14,6 +14,7 @@ const Navbar = () => {
     { name: "INNER PAGES", path: "/inner-pages" },
     { name: "FEATURES", path: "/features" },
     { name: "TESTIMONIAL", path: "/testimonial" },
+    {name:"CONTACT",path:"/Contact"},
     { name: "LOGIN", path: "/login" },
     { name: "REGISTER", path: "/register" },
   ];
