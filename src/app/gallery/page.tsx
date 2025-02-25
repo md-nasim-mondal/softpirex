@@ -15,7 +15,7 @@ const Page = () => {
                 ></div>
                 
                 {/* Content Layer */}
-                <div className="relative z-10">
+                <div className="relative z-10 mt-6 md:mt-0">
                     <h2 className="text-4xl text-white font-bold">Our Gallery</h2>
                     <p className="text-lg font-semibold text-white mt-5">
                         We are a team of talented developers making the best web and mobile applications.
