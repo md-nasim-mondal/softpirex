@@ -8,7 +8,7 @@ const images = [
   'https://i.ibb.co.com/xqJ721ZZ/demo.png',
   'https://i.ibb.co.com/xqJ721ZZ/demo.png',
   'https://i.ibb.co.com/xqJ721ZZ/demo.png',
-];
+]; 
 
 export default function HeroSection() {
   return (
