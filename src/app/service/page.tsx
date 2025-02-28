@@ -42,7 +42,7 @@ const services = [
 
 const ServiceSection = () => {
   return (
-    <div className="py-20 text-white">
+    <div className="py-20 min-h-screen text-white">
       <div className="max-w-7xl mx-auto px-6 ">
         <h2 className="text-xl font-bold ">
          <span className="text-blue-600">  Our Services</span>
