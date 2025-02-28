@@ -3,12 +3,9 @@
 import React, { FC } from "react";
 
 const ContactForm: FC = () => {
-  const handleSubmit = () => {
-    e.preventdefault();
-  };
+
   return (
     <form
-      onSubmit={handleSubmit}
       className="w-full md:w-1/2 bg-gray-800 p-6 rounded-lg shadow-lg"
     >
       <input
