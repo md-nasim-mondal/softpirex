@@ -94,23 +94,23 @@ const page = () => {
           including React, Next.js, Node.js, and headless CMS implementations.
           We deliver:
         </p>
-        <ul className="grid md:grid-cols-3 gap-4 mt-6 text-blue-600 text-center">
-          <li className="p-4 bg-gray-50 rounded-lg">
+        <ul className="grid md:grid-cols-3 gap-4 mt-6 text-white text-center">
+          <li className="p-4 bg-blue-600 rounded-lg">
             Custom Web Application Development
           </li>
-          <li className="p-4 bg-gray-50 rounded-lg">
+          <li className="p-4 bg-blue-600 rounded-lg">
             E-commerce & Marketplace Solutions
           </li>
-          <li className="p-4 bg-gray-50 rounded-lg">
+          <li className="p-4 bg-blue-600 rounded-lg">
             Enterprise-grade Website Development
           </li>
-          <li className="p-4 bg-gray-50 rounded-lg">
+          <li className="p-4 bg-blue-600 rounded-lg">
             Mobile-First Responsive Design
           </li>
-          <li className="p-4 bg-gray-50 rounded-lg">
+          <li className="p-4 bg-blue-600 rounded-lg">
             API Integration & Microservices
           </li>
-          <li className="p-4 bg-gray-50 rounded-lg">
+          <li className="p-4 bg-blue-600 rounded-lg">
             Performance Optimization
           </li>
         </ul>

@@ -99,7 +99,7 @@ const Projects: FC = () => {
                 <h3 className="text-xl font-semibold text-gray-100 ">
                   {project.title}
                 </h3>
-                <span className="text-sm font-medium text-blue-600 bg-blue-100 px-3 rounded-full">
+                <span className="text-sm font-bold text-white bg-blue-500 px-3 rounded-full">
                   {project.category}
                 </span>
               </div>
@@ -107,7 +107,7 @@ const Projects: FC = () => {
 
               <Link
                 href="#"
-                className="mt-4 inline-flex items-center bg-blue-100 px-3 py-1 hover:px-6 hover:bg-blue-500 hover:text-white transition-all rounded-full text-blue-600"
+                className="mt-4 inline-flex items-center hover:underline px-3 py-1 hover:px-6 bg-blue-500 text-white transition-all rounded-full"
               >
                 View Project <GoArrowUpRight />
               </Link>
