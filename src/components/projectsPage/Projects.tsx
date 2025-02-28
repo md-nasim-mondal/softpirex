@@ -70,7 +70,7 @@ const Projects: FC = () => {
   const displayedProjects = showAll ? projects : projects.slice(0, 4);
 
   return (
-    <main className="max-w-screen-lg mx-auto px-4 sm:px-6 lg:px-8 my-6">
+    <main className="container mx-auto mt-14 px-4 md:px-6 lg:px-8 my-6">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
         {displayedProjects.map((project) => (
           <motion.div
@@ -96,14 +96,14 @@ const Projects: FC = () => {
 
             <>
               <div className="flex items-center justify-between mb-2">
-                <h3 className="text-xl font-semibold text-gray-900 ">
+                <h3 className="text-xl font-semibold text-gray-100 ">
                   {project.title}
                 </h3>
                 <span className="text-sm font-medium text-blue-600 bg-blue-100 px-3 rounded-full">
                   {project.category}
                 </span>
               </div>
-              <p className="text-gray-600">{project.description}</p>
+              <p className="text-gray-300">{project.description}</p>
 
               <Link
                 href="#"
