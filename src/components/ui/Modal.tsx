@@ -44,10 +44,10 @@ export default function Modal({ isOpen, setIsOpen, title, children }: ModalProps
                 leave='ease-in duration-200'
                 leaveFrom='opacity-100 scale-100'
                 leaveTo='opacity-0 scale-95'>
-                <DialogPanel className='w-full max-w-md transform overflow-hidden rounded-2xl bg-white p-6 text-left align-middle shadow-xl transition-all'>
+                <DialogPanel className='w-full max-w-md transform overflow-hidden rounded-2xl bg-white p-6 md:p-8 text-left align-middle shadow-xl transition-all'>
                   <DialogTitle
                     as='h3'
-                    className='text-lg font-medium leading-6 text-gray-900 text-center'>
+                    className='text-lg md:text-xl font-medium leading-6 text-gray-900 text-center'>
                     {title}
                   </DialogTitle>
                   {children}
