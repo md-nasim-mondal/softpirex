@@ -107,7 +107,7 @@ export const SendEmail = async (
       html: htmlContent,
     });
 
-    return "Email sent successfully!";
+    return "Please check your email!!";
   } catch (error) {
     console.error("Email send error:", error);
     return error instanceof Error ? error.message : "Unknown error occurred";

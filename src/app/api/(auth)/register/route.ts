@@ -1,7 +1,6 @@
 import { connectDB } from "@/database/dbConfig";
 import { NextResponse, type NextRequest } from "next/server";
 import bcrypt from "bcryptjs";
-// import { SendEmail } from "@/helper/SendMail/SendMail";
 import User from "@/models/userModel";
 import { SendEmail } from "@/utils/SendEmail";
 
@@ -38,7 +37,6 @@ export const POST = async (request: NextRequest) => {
     await newUser.save();
 
     // Send verification email
-    // const emailResponse = await SendEmail(email, "verify-email");
     const emailResponse = await SendEmail(email, "verify-email");
 
     return NextResponse.json(

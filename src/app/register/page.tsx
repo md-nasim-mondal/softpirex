@@ -10,7 +10,7 @@ import { buttonLoader } from "@/components/LoadingSpinners/Loaders";
 import useUploadImage from "@/hooks/useUploadImage";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
-import axios from "axios";
+import { registerAction } from "@/actions/registerActions";
 // Define the form input types
 interface RegistrationFormInputs {
   name: string;
@@ -80,43 +80,43 @@ const Register = () => {
     data
   ) => {
     const { name, email, password } = data;
-    if (photoUrl) {
-      try {
-        setRegisterLoading(true);
 
-        const userData = {
-          name,
-          email,
-          image: photoUrl,
-          password,
-        };
+    if (!photoUrl) {
+      Swal.fire({
+        title: "Error!",
+        text: "Profile photo is required!",
+        icon: "error",
+        confirmButtonText: "Close",
+      });
+      return;
+    }
 
-        try {
-          const { data } = await axios.post(
-            `${process.env.NEXT_PUBLIC_BASE_URL}/api/register`,
-            userData
-          );
-          if (data.status === 200) {
-            toast.success(data.message);
-            reset();
-          } else {
-            toast.error(data.message);
-          }
-          console.log(data);
-        } catch (error: unknown) {
-          throw new Error(error as string);
-        }
+    try {
+      setRegisterLoading(true);
+
+      const response = await registerAction(name, email, password, photoUrl);
+
+      if (response.success) {
+        reset();
         router.push(from);
-      } catch (error) {
+      } else {
         Swal.fire({
           title: "Error!",
-          text: error instanceof Error ? error.message : "Registration failed",
+          text: response.message,
           icon: "error",
           confirmButtonText: "Close",
         });
-      } finally {
-        setRegisterLoading(false);
       }
+    } catch (error) {
+      Swal.fire({
+        title: "Error!",
+        text: "An unexpected error occurred!",
+        icon: "error",
+        confirmButtonText: "Close",
+      });
+      console.log(error);
+    } finally {
+      setRegisterLoading(false);
     }
   };
 
