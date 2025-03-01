@@ -11,7 +11,7 @@ export async function middleware(req: NextRequest) {
   const path = req.nextUrl.pathname;
   const isPublicPath = path === "/login" || path === "/register";
   if (!token && !isPublicPath) {
-    return NextResponse.redirect(new URL("/sign-in", req?.url));
+    return NextResponse.redirect(new URL("/login", req?.url));
   }
 
   if (!token && isPublicPath) {

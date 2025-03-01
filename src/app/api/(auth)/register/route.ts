@@ -1,8 +1,9 @@
 import { connectDB } from "@/database/dbConfig";
 import { NextResponse, type NextRequest } from "next/server";
 import bcrypt from "bcryptjs";
-import { SendEmail } from "@/helper/SendMail";
+// import { SendEmail } from "@/helper/SendMail/SendMail";
 import User from "@/models/userModel";
+import { SendEmail } from "@/utils/SendEmail";
 
 export const POST = async (request: NextRequest) => {
   try {
@@ -23,7 +24,10 @@ export const POST = async (request: NextRequest) => {
     // Check if user already exists
     const existingUser = await User.findOne({ email });
     if (existingUser) {
-      return NextResponse.json({ message: "User already exists", status: 400 });
+      return NextResponse.json({
+        message: "User already exists!",
+        status: 400,
+      });
     }
 
     // Hash the password
@@ -34,6 +38,7 @@ export const POST = async (request: NextRequest) => {
     await newUser.save();
 
     // Send verification email
+    // const emailResponse = await SendEmail(email, "verify-email");
     const emailResponse = await SendEmail(email, "verify-email");
 
     return NextResponse.json(
@@ -45,7 +50,6 @@ export const POST = async (request: NextRequest) => {
       { status: 201 }
     );
   } catch (err: unknown) {
-    console.error("Error:", err);
     return NextResponse.json(
       {
         message:
