@@ -14,6 +14,7 @@ export async function POST(req: NextRequest) {
 
     const emailResponse = await SendEmail(senderEmail, "contact-us", {
       name: senderName,
+      subject,
       message,
     });
 

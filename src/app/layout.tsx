@@ -37,7 +37,7 @@ export default function RootLayout({
             <div className='sticky top-0 left-0 w-full z-50'>
               <Navbar />
             </div>
-            {children}
+            <div className="min-h-[calc(100vh - 780px)]">{children}</div>
             <Footer />
           </Suspense>
         </AuthProvider>

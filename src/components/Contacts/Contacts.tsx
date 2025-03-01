@@ -8,6 +8,7 @@ import axios from "axios";
 import toast from "react-hot-toast";
 
 const Contacts: FC = () => {
+  const [isLoading, setIsLoading] = useState(false);
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -19,6 +20,7 @@ const Contacts: FC = () => {
     e.preventDefault();
 
     try {
+      setIsLoading(true);
       const { name, email, subject, message } = formData;
       const messageData = {
         senderName: name,
@@ -32,7 +34,7 @@ const Contacts: FC = () => {
         messageData
       );
 
-      if (response.data.success) {
+      if (response?.data?.success) {
         toast.success("Message sent successfully!");
         setFormData({ name: "", email: "", subject: "", message: "" });
       } else {
@@ -41,8 +43,11 @@ const Contacts: FC = () => {
     } catch (error) {
       console.error("Error sending message:", error);
       toast.error("Something went wrong. Please try again later.");
+    } finally {
+      setIsLoading(false);
     }
   };
+
   return (
     <div className='container mx-auto text-white py-16 px-8 flex flex-col md:flex-row justify-center items-center gap-12'>
       <section className='w-full md:w-1/3'>
@@ -57,7 +62,7 @@ const Contacts: FC = () => {
             </div>
             <div>
               <p className='text-gray-300 font-semibold'>Email</p>
-              <p className='text-gray-400'>mostasirmahim@gmail.com</p>
+              <p className='text-gray-400'>softpirex@gmail.com</p>
             </div>
           </div>
           <div className='flex items-center gap-4'>
@@ -84,6 +89,7 @@ const Contacts: FC = () => {
         handleSubmit={handleSubmit}
         formData={formData}
         setFormData={setFormData}
+        isLoading={isLoading}
       />
     </div>
   );
