@@ -4,6 +4,8 @@ import { FaPhoneAlt } from "react-icons/fa";
 import { FaLocationDot } from "react-icons/fa6";
 import { MdMarkEmailUnread } from "react-icons/md";
 import ContactForm from "./ContactForm";
+import axios from "axios";
+import toast from "react-hot-toast";
 
 const Contacts: FC = () => {
   const [formData, setFormData] = useState({
@@ -16,7 +18,30 @@ const Contacts: FC = () => {
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
+    try {
+      const { name, email, subject, message } = formData;
+      const messageData = {
+        senderName: name,
+        senderEmail: email,
+        subject,
+        message,
+      };
 
+      const response = await axios.post(
+        `${process.env.NEXT_PUBLIC_BASE_URL}/api/contacts/message/send`,
+        messageData
+      );
+
+      if (response.data.success) {
+        toast.success("Message sent successfully!");
+        setFormData({ name: "", email: "", subject: "", message: "" });
+      } else {
+        toast.error("Failed to send message. Please try again.");
+      }
+    } catch (error) {
+      console.error("Error sending message:", error);
+      toast.error("Something went wrong. Please try again later.");
+    }
   };
   return (
     <div className='container mx-auto text-white py-16 px-8 flex flex-col md:flex-row justify-center items-center gap-12'>

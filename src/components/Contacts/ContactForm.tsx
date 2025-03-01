@@ -38,6 +38,7 @@ const ContactForm: FC<ContactFormProps> = ({
         placeholder='Your Name'
         value={formData?.name}
         onChange={handleChange}
+        required
         className='w-full p-3 mb-3 bg-gray-700 text-white rounded-lg'
       />
       <input
@@ -46,6 +47,7 @@ const ContactForm: FC<ContactFormProps> = ({
         placeholder='Your Email'
         value={formData?.email}
         onChange={handleChange}
+        required
         className='w-full p-3 mb-3 bg-gray-700 text-white rounded-lg'
       />
       <input
@@ -54,6 +56,7 @@ const ContactForm: FC<ContactFormProps> = ({
         placeholder='Subject'
         value={formData?.subject}
         onChange={handleChange}
+        required
         className='w-full p-3 mb-3 bg-gray-700 text-white rounded-lg'
       />
       <textarea
@@ -61,6 +64,7 @@ const ContactForm: FC<ContactFormProps> = ({
         placeholder='Your Message'
         value={formData?.message}
         onChange={handleChange}
+        required
         className='w-full p-3 mb-3 bg-gray-700 text-white rounded-lg h-32'></textarea>
       <button
         type='submit'
