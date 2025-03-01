@@ -1,10 +1,10 @@
 import User from "@/models/userModel";
 import nodemailer from "nodemailer";
 import crypto from "crypto";
-// import { verifyEmailTemplate } from "@/utils/emailTemplates/verifyEmailTemplate";
-// import { resetPasswordTemplate } from "@/utils/emailTemplates/resetPasswordTemplate";
-// import { contactUsTemplate } from "@/utils/emailTemplates/contactUsTemplate";
-// import { thankYouTemplate } from "@/utils/emailTemplates/thankYouTemplate";
+import { verifyEmailTemplate } from "@/utils/emailTemplates/verifyEmailTemplate";
+import { resetPasswordTemplate } from "@/utils/emailTemplates/resetPasswordTemplate";
+import { contactUsTemplate } from "@/utils/emailTemplates/contactUsTemplate";
+import { thankYouTemplate } from "@/utils/emailTemplates/thankYouTemplate";
 
 const transporter = nodemailer.createTransport({
   host: "smtp.gmail.com",
@@ -24,7 +24,7 @@ export const SendEmail = async (
   try {
     let token = "";
     let subject = "";
-    // let htmlContent = "";
+    let htmlContent = "";
     let toEmail = email;
     let bccEmails: string[] = [];
 
@@ -48,10 +48,10 @@ export const SendEmail = async (
         emailType === "verify-email"
           ? "Verify Your Email"
           : "Reset Your Password";
-      // htmlContent =
-      //   emailType === "verify-email"
-      //     ? verifyEmailTemplate(token)
-      //     : resetPasswordTemplate(token);
+      htmlContent =
+        emailType === "verify-email"
+          ? verifyEmailTemplate(token)
+          : resetPasswordTemplate(token);
     } else if (emailType === "contact-us" && extraData?.message) {
       // **সব অ্যাডমিনদের ইমেইল বের করা**
       const admins = await User.find({ role: "admin" }).select("email");
@@ -62,12 +62,12 @@ export const SendEmail = async (
       bccEmails = admins.slice(1).map((admin) => admin.email);
 
       subject = `New Contact Form Message from ${extraData.name || "User"}`;
-      // htmlContent = contactUsTemplate(
-      //   extraData.name || "Anonymous",
-      //   email,
-      //   extraData.subject || "No Subject",
-      //   extraData.message
-      // );
+      htmlContent = contactUsTemplate(
+        extraData.name || "Anonymous",
+        email,
+        extraData.subject || "No Subject",
+        extraData.message
+      );
 
       // ✅ Send Email to Admins
       await transporter.sendMail({
@@ -75,7 +75,7 @@ export const SendEmail = async (
         to: toEmail,
         bcc: bccEmails.length > 0 ? bccEmails : undefined,
         subject,
-        // html: htmlContent,
+        html: htmlContent,
       });
 
       // ✅ Send "Thank You" Email to User
@@ -83,7 +83,7 @@ export const SendEmail = async (
         from: process.env.GMAIL_USER as string,
         to: email,
         subject: "Thank You for Contacting Us!",
-        // html: thankYouTemplate(extraData.name || "User"),
+        html: thankYouTemplate(extraData.name || "User"),
       });
 
       return "Emails sent successfully!";
@@ -97,7 +97,7 @@ export const SendEmail = async (
       to: toEmail,
       bcc: bccEmails.length > 0 ? bccEmails : undefined,
       subject,
-      // html: htmlContent,
+      html: htmlContent,
     });
 
     return "Email sent successfully!";
