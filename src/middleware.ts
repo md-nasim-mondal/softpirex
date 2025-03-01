@@ -24,6 +24,7 @@ export async function middleware(req: NextRequest) {
   ) {
     return NextResponse.next();
   }
+  console.log(role, isPublicPath);
   if (role && isPublicPath) {
     return NextResponse.redirect(
       // new URL(`${role.toLowerCase()}-dashboard/profile`, req.url)

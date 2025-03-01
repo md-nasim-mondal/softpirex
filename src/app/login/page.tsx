@@ -9,6 +9,7 @@ import { buttonLoader } from "@/components/LoadingSpinners/Loaders";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { signIn } from "next-auth/react";
+import SocialLogin from "@/components/SocialLogin/SocialLogin";
 
 // Define the form input types
 interface LoginFormInputs {
@@ -75,6 +76,7 @@ const Login = () => {
         Please, Login
       </h2>
       <div className='flex-1 flex flex-col items-center gap-2 lg:w-1/2'>
+        <SocialLogin />
         <div className='flex items-center w-full my-4'>
           <hr className='w-full dark:text-gray-600' />
           <p className='px-3 dark:text-gray-600'>OR</p>

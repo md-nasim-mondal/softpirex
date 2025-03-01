@@ -11,6 +11,7 @@ import useUploadImage from "@/hooks/useUploadImage";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 import { registerAction } from "@/actions/registerActions";
+import SocialLogin from "@/components/SocialLogin/SocialLogin";
 // Define the form input types
 interface RegistrationFormInputs {
   name: string;
@@ -126,6 +127,7 @@ const Register = () => {
         Please, Register
       </h2>
       <div className='flex-1 flex flex-col items-center gap-2 lg:w-1/2'>
+      <SocialLogin/>
         <div className='flex items-center w-full my-4'>
           <hr className='w-full dark:text-gray-600' />
           <p className='px-3 dark:text-gray-600'>OR</p>

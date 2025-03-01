@@ -19,7 +19,7 @@ export const PUT = async (request: NextRequest) => {
       });
     }
 
-    // Check if user already exists
+    // Check user exists or not
     const existingUser = await User.findOne({ email });
     if (!existingUser) {
       return NextResponse.json({
@@ -28,7 +28,7 @@ export const PUT = async (request: NextRequest) => {
       });
     }
 
-    // Send verification email
+    // Send reset verification email
     const emailResponse = await SendEmail(email, "reset-password");
 
     return NextResponse.json(
