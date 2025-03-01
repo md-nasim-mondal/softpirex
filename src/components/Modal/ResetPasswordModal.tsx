@@ -28,6 +28,7 @@ const ResetPasswordModal: React.FC<ResetPasswordModalProps> = ({
       if (response.success) {
         toast.success("Please Check Your Email!");
         setEmail("");
+        setIsOpen(false)
       } else {
         Swal.fire({
           title: "Error!",
