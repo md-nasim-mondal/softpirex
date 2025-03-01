@@ -19,7 +19,7 @@ interface LoginFormInputs {
 }
 
 const Login = () => {
-  const [isOpen, setIsOpen] = useState(true)
+  const [isOpen, setIsOpen] = useState(false)
   const [showPassword, setShowPassword] = useState(false);
   const [userLoading, setUserLoading] = useState(false);
   const router = useRouter();
