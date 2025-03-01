@@ -1,7 +1,7 @@
 import axios from "axios";
 import toast from "react-hot-toast";
 
-export async function resetPasswordActions(email: string) {
+export async function resetPasswordAction(email: string) {
   if (!email) {
     toast.error("Email is required!");
     return { success: false, message: "Email is required!" };

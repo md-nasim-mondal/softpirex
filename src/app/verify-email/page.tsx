@@ -22,7 +22,7 @@ const VerifyEmail = () => {
         const data = await verifyTokenAction(token, "email-verification");
         setValid(data.valid);
         if (!data.valid) {
-          toast.error("Invalid token!");
+          toast.error("Invalid URL!");
         }
       } catch (error) {
         toast.error("Something went wrong!");

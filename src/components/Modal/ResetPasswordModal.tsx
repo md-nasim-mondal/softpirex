@@ -1,5 +1,5 @@
 "use client";
-import { resetPasswordActions } from "@/actions/resetPasswordActions";
+import { resetPasswordAction } from "@/actions/resetPasswordActions";
 import Modal from "@/components/ui/Modal";
 import type React from "react";
 import { useState } from "react";
@@ -23,7 +23,7 @@ const ResetPasswordModal: React.FC<ResetPasswordModalProps> = ({
     try {
       setIsLoading(true);
 
-      const response = await resetPasswordActions(email);
+      const response = await resetPasswordAction(email);
 
       if (response.success) {
         toast.success("Please Check Your Email!");

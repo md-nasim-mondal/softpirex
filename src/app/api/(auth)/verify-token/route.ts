@@ -5,6 +5,8 @@ export const GET = async (request: NextRequest) => {
   try {
     const { searchParams } = new URL(request.url);
     const token = searchParams.get("token");
+    const tokenType = searchParams.get("tokenType");
+    let user;
 
     if (!token) {
       return NextResponse.json({
@@ -14,10 +16,17 @@ export const GET = async (request: NextRequest) => {
       });
     }
 
-    const user = await User.findOne({
-      verifyToken: token,
-      verifyTokenExpire: { $gt: Date.now() },
-    });
+    if (tokenType === "email-verification") {
+      user = await User.findOne({
+        verifyToken: token,
+        verifyTokenExpire: { $gt: Date.now() },
+      });
+    } else if (tokenType === "reset-password") {
+      user = await User.findOne({
+        resetToken: token,
+        resetTokenExpire: { $gt: Date.now() },
+      });
+    }
 
     if (!user) {
       return NextResponse.json({
