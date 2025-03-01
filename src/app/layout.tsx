@@ -19,7 +19,7 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "Softpirex",
-  description: "A simple web development agency.",
+  description: "A simple web development agency website.",
   icons: "/icons/favicon.png",
 };
 
@@ -37,7 +37,7 @@ export default function RootLayout({
             <div className='sticky top-0 left-0 w-full z-50'>
               <Navbar />
             </div>
-            <div className="min-h-[calc(100vh - 780px)]">{children}</div>
+            <div className='min-h-[calc(100vh - 780px)]'>{children}</div>
             <Footer />
           </Suspense>
         </AuthProvider>
