@@ -17,7 +17,6 @@ export const SendEmail = async (
   emailType: string
 ): Promise<string> => {
   try {
-    // **1. Random Token Generate করা**
     const token = crypto.randomBytes(32).toString("hex");
 
     if (emailType === "verify-email") {
@@ -30,7 +29,6 @@ export const SendEmail = async (
       );
     }
 
-    // **2. Mail Options**
     const mailOptions = {
       from: process.env.GMAIL_USER as string,
       to: email,
@@ -237,8 +235,6 @@ export const SendEmail = async (
 </html>
 `,
     };
-
-    // **3. sendMail Async করার জন্য Promise ব্যবহার**
     await transporter.sendMail(mailOptions);
 
     return "Email sent successfully!";

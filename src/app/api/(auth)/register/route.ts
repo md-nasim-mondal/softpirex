@@ -1,7 +1,7 @@
 import { connectDB } from "@/database/dbConfig";
 import { NextResponse, type NextRequest } from "next/server";
 import bcrypt from "bcryptjs";
-import { SendEmail } from "@/helper/SendMail";
+import { SendEmail } from "@/helper/SendMail/SendMail";
 import User from "@/models/userModel";
 
 export const POST = async (request: NextRequest) => {
