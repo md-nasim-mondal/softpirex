@@ -7,7 +7,11 @@ export const GET = async (request: NextRequest) => {
     const token = searchParams.get("token");
 
     if (!token) {
-      return NextResponse.json({ message: "Token is required!", status: 400 });
+      return NextResponse.json({
+        valid: false,
+        message: "Token is required!",
+        status: 400,
+      });
     }
 
     const user = await User.findOne({
@@ -17,22 +21,20 @@ export const GET = async (request: NextRequest) => {
 
     if (!user) {
       return NextResponse.json({
+        valid: false,
         message: "Invalid or expired token!",
         status: 400,
       });
     }
 
-    user.isVerified = true;
-    user.verifyToken = undefined;
-    user.verifyTokenExpire = undefined;
-    await user.save();
-
     return NextResponse.json({
-      message: "Email successfully verified!",
+      valid: true,
+      message: "Token is valid!",
       status: 200,
     });
   } catch (err) {
     return NextResponse.json({
+      valid: false,
       message: err instanceof Error ? err.message : "An unknown error occurred",
       status: 500,
     });
