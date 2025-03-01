@@ -3,8 +3,7 @@ import {
   verifyPasswordResetAction,
   verifyTokenAction,
 } from "@/actions/verifyActions";
-import { useSearchParams } from "next/navigation";
-import { useRouter } from "next/router";
+import { useRouter, useSearchParams } from "next/navigation";
 import React, { useEffect, useState } from "react";
 import toast from "react-hot-toast";
 
@@ -45,7 +44,7 @@ const VerifyResetPassword = () => {
   const setNewPassword = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (!token) return toast.error("Invalid token!");
-    
+
     if (formData.password !== formData.cPassword) {
       return toast.error("Passwords do not match!");
     }

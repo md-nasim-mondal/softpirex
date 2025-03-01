@@ -8,6 +8,9 @@ export const GET = async (request: NextRequest) => {
     const tokenType = searchParams.get("tokenType");
     let user;
 
+    console.log("from line 11",token)
+    console.log(tokenType);
+
     if (!token) {
       return NextResponse.json({
         valid: false,

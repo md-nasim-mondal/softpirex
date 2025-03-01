@@ -3,8 +3,9 @@ import axios from "axios";
 export async function verifyTokenAction(token: string, tokenType: string) {
   try {
     const res = await axios.get(
-      `${process.env.NEXT_PUBLIC_BASE_URL}/api/verify-token?token=${token}?tokenType=${tokenType}`
+      `${process.env.NEXT_PUBLIC_BASE_URL}/api/verify-token?token=${token}&tokenType=${tokenType}`
     );
+    console.log(res);
     return res.data;
   } catch (error) {
     return { valid: false, error: error };
@@ -30,7 +31,7 @@ export async function verifyPasswordResetAction(
 ) {
   try {
     const res = await axios.put(
-      `${process.env.NEXT_PUBLIC_BASE_URL}/api/verify-email?token=${token}`, passData
+      `${process.env.NEXT_PUBLIC_BASE_URL}/api/verify-reset-password?token=${token}`, passData
     );
     return res.data;
   } catch (error) {
