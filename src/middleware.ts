@@ -6,7 +6,6 @@ export async function middleware(req: NextRequest) {
     req,
     secret: process.env.NEXT_PUBLIC_JWT_SECRET,
   });
-  console.log("token from middleware:", token);
   const role = token?.role;
   const path = req.nextUrl.pathname;
   const isPublicPath = path === "/login" || path === "/register";
@@ -25,9 +24,11 @@ export async function middleware(req: NextRequest) {
   ) {
     return NextResponse.next();
   }
+  console.log(role, isPublicPath);
   if (role && isPublicPath) {
     return NextResponse.redirect(
-      new URL(`${role.toLowerCase()}-dashboard/profile`, req.url)
+      // new URL(`${role.toLowerCase()}-dashboard/profile`, req.url)
+      new URL(`/`, req.url)
     );
   }
   return new NextResponse("Forbidden", { status: 403 });
@@ -36,7 +37,7 @@ export async function middleware(req: NextRequest) {
 export const config = {
   matcher: [
     "/admin-dashboard/:path",
-    "/trainer-dashboard/:path",
+    "/subscriber-dashboard/:path",
     "/member-dashboard/:path",
     "/login",
     "/register",

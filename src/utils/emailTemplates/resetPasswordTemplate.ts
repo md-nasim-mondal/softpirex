@@ -14,7 +14,7 @@ export const resetPasswordTemplate = (token: string) => `
                     <h1 style="color: #1a237e;">Reset Your Password</h1>
                     <p style="color: #4b5563; font-size: 16px;">We received a request to reset your password. Click the button below to reset it.</p>
                     <hr style="border: 1px solid #ddd;">
-                    <a href="${process.env.NEXT_PUBLIC_BASE_URL}/reset-password?token=${token}" 
+                    <a href="${process.env.NEXT_PUBLIC_BASE_URL}/verify-reset-password?token=${token}" 
                         style="display: inline-block; padding: 10px 20px; background-color: #1a237e; color: #ffffff; text-decoration: none; border-radius: 5px; font-size: 16px;">
                         Reset Password
                     </a>
