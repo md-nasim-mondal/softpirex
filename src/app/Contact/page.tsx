@@ -1,11 +1,11 @@
 import Contacts from "@/components/Contacts/Contacts";
 
-const page = () => {
+const ContactPage = () => {
   return (
-    <main className="bg-gray-900 min-h-screen">
+    <main className='bg-gray-900 min-h-screen flex justify-center items-center'>
       <Contacts />
     </main>
   );
 };
 
-export default page;
+export default ContactPage;

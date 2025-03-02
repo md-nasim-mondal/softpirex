@@ -1,7 +1,12 @@
 import User from "@/models/userModel";
+import bcrypt from "bcryptjs";
 import { NextRequest, NextResponse } from "next/server";
 
-export const GET = async (request: NextRequest) => {
+export const PUT = async (request: NextRequest) => {
+  const passData = await request.json();
+  const { password } = passData;
+  // Hash the password
+  const hashedPassword = await bcrypt.hash(password, 12);
   try {
     const { searchParams } = new URL(request.url);
     const token = searchParams.get("token");
@@ -11,8 +16,8 @@ export const GET = async (request: NextRequest) => {
     }
 
     const user = await User.findOne({
-      verifyToken: token,
-      verifyTokenExpire: { $gt: Date.now() },
+      resetToken: token,
+      resetTokenExpire: { $gt: Date.now() },
     });
 
     if (!user) {
@@ -22,13 +27,13 @@ export const GET = async (request: NextRequest) => {
       });
     }
 
-    user.isVerified = true;
-    user.verifyToken = undefined;
-    user.verifyTokenExpire = undefined;
+    user.password = hashedPassword;
+    user.resetToken = undefined;
+    user.resetTokenExpire = undefined;
     await user.save();
 
     return NextResponse.json({
-      message: "Email successfully verified!",
+      message: "Password successfully reset!",
       status: 200,
     });
   } catch (err) {

@@ -16,7 +16,6 @@ const userSchema = new mongoose.Schema(
     },
     password: {
       type: String,
-      required: [true, "Password is required!!"],
     },
     image: {
       type: String,
@@ -41,6 +40,8 @@ const userSchema = new mongoose.Schema(
     },
     verifyToken: String,
     verifyTokenExpire: Date,
+    resetToken: String,
+    resetTokenExpire: Date,
   },
   {
     collection: "users",

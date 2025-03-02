@@ -19,8 +19,8 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "Softpirex",
-  description: "A simple web development agency.",
-  icons: "/icons/favicon.png"
+  description: "A simple web development agency website.",
+  icons: "/icons/favicon.png",
 };
 
 export default function RootLayout({
@@ -29,7 +29,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang='en' data-theme="light">
+    <html lang='en' data-theme='light'>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
         <AuthProvider>
@@ -37,8 +37,8 @@ export default function RootLayout({
             <div className='sticky top-0 left-0 w-full z-50'>
               <Navbar />
             </div>
-            {children}
-            <Footer/>
+            <div className='min-h-[calc(100vh - 780px)]'>{children}</div>
+            <Footer />
           </Suspense>
         </AuthProvider>
         <Toaster />

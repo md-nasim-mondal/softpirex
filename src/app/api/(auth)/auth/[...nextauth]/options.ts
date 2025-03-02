@@ -55,6 +55,7 @@ export const authOptions: NextAuthOptions = {
   },
   callbacks: {
     async signIn({ user, account }) {
+      // console.log(user, account, profile);
       await connectDB();
       const userExist = await Users.findOne({ email: user?.email });
       if (!userExist) {
@@ -66,6 +67,7 @@ export const authOptions: NextAuthOptions = {
         });
         await newUser.save();
       }
+      user.role = userExist.role;
       return true;
     },
     async jwt({ user, token }) {
