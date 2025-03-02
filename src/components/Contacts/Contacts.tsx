@@ -49,42 +49,43 @@ const Contacts: FC = () => {
   };
 
   return (
-    <div className='container mx-auto text-white py-16 px-8 flex flex-col md:flex-row justify-center items-center gap-12'>
-      <section className='w-full md:w-1/3'>
-        <h2 className='text-3xl font-semibold text-blue-400'>Get in Touch</h2>
-        <p className='mt-2 text-gray-400'>
+    <div className="container mx-auto text-white py-16 px-8 flex flex-col md:flex-row justify-center items-center gap-12 bg-gradient-to-b from-gray-800 to-gray-900 rounded-lg shadow-xl">
+      <section className="w-full md:w-1/3">
+        <h2 className="text-4xl font-semibold text-blue-600 mb-4">Get in Touch</h2>
+        <p className="mt-2 text-gray-400 text-lg">
           Have a question or want to work together? Drop us a message!
         </p>
-        <div className='mt-6 space-y-4'>
-          <div className='flex items-center gap-4'>
-            <div className='bg-blue-500 p-3 rounded-lg'>
-              <MdMarkEmailUnread className='text-white' />
+        <div className="mt-6 space-y-6">
+          <div className="flex items-center gap-4">
+            <div className="bg-blue-600 p-3 rounded-lg shadow-lg hover:shadow-xl transition duration-300">
+              <MdMarkEmailUnread className="text-white text-xl" />
             </div>
             <div>
-              <p className='text-gray-300 font-semibold'>Email</p>
-              <p className='text-gray-400'>softpirex@gmail.com</p>
+              <p className="text-gray-300 font-semibold text-lg">Email</p>
+              <p className="text-gray-400">softpirex@gmail.com</p>
             </div>
           </div>
-          <div className='flex items-center gap-4'>
-            <div className='bg-blue-500 p-3 rounded-lg'>
-              <FaPhoneAlt className='text-white' />
+          <div className="flex items-center gap-4">
+            <div className="bg-blue-600 p-3 rounded-lg shadow-lg hover:shadow-xl transition duration-300">
+              <FaPhoneAlt className="text-white text-xl" />
             </div>
             <div>
-              <p className='text-gray-300 font-semibold'>Phone</p>
-              <p className='text-gray-400'>01571419493</p>
+              <p className="text-gray-300 font-semibold text-lg">Phone</p>
+              <p className="text-gray-400">01571419493</p>
             </div>
           </div>
-          <div className='flex items-center gap-4'>
-            <div className='bg-blue-500 p-3 rounded-lg'>
-              <FaLocationDot className='text-white' />
+          <div className="flex items-center gap-4">
+            <div className="bg-blue-600 p-3 rounded-lg shadow-lg hover:shadow-xl transition duration-300">
+              <FaLocationDot className="text-white text-xl" />
             </div>
             <div>
-              <p className='text-gray-300 font-semibold'>Location</p>
-              <p className='text-gray-400'>Mirpur-13, Block D, Dhaka</p>
+              <p className="text-gray-300 font-semibold text-lg">Location</p>
+              <p className="text-gray-400">Mirpur-13, Block D, Dhaka</p>
             </div>
           </div>
         </div>
       </section>
+
       <ContactForm
         handleSubmit={handleSubmit}
         formData={formData}
