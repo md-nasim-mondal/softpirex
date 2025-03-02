@@ -75,4 +75,6 @@ const VerifyEmail = () => {
   );
 };
 
+// This verify email page
+
 export default VerifyEmail;
