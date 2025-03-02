@@ -5,9 +5,11 @@ import { IoMenuSharp } from "react-icons/io5";
 import { ImCross } from "react-icons/im";
 import { motion } from "framer-motion";
 import Image from "next/image";
+import { usePathname } from "next/navigation"; // Import usePathname
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const pathname = usePathname(); // Get the current pathname
 
   const navLinks = [
     { name: "HOME", path: "/" },
@@ -15,7 +17,7 @@ const Navbar = () => {
     { name: "SERVICE", path: "/service" },
     { name: "GALLERY", path: "/gallery" },
     { name: "PROCESS", path: "/process" },
-    {name:"CONTACT",path:"/contact"},
+    { name: "CONTACT", path: "/contact" },
     { name: "LOGIN", path: "/login" },
     { name: "REGISTER", path: "/register" },
   ];
@@ -25,12 +27,7 @@ const Navbar = () => {
       <div className="max-w-7xl mx-auto flex justify-between items-center">
         {/* Logo */}
         <Link href="/" className="flex items-center space-x-2">
-          <Image
-            src="/icons/logo.png"
-            alt="Softpirex"
-            height={50}
-            width={150}
-          />
+          <Image src="/icons/logo.png" alt="Softpirex" height={50} width={150} />
         </Link>
 
         {/* Desktop Menu */}
@@ -38,9 +35,17 @@ const Navbar = () => {
           {navLinks.map((link, index) => (
             <li
               key={index}
-              className="hover:text-blue-400 transition duration-300"
+              className={`relative ${
+                pathname === link.path
+                  ? "text-blue-600 bg-gray-800 rounded-lg py-1 px-3" // Active link style
+                  : "hover:text-blue-400 transition duration-300"
+              }`}
             >
               <Link href={link.path}>{link.name}</Link>
+              {/* Active Link Underline */}
+              {pathname === link.path && (
+                <span className="absolute bottom-0 left-0 w-full h-1 bg-blue-600 transition-all duration-300"></span>
+              )}
             </li>
           ))}
         </ul>
@@ -86,10 +91,18 @@ const Navbar = () => {
           >
             <Link
               href={link.path}
-              className="block hover:text-blue-400 transition duration-300"
+              className={`block ${
+                pathname === link.path
+                  ? "bg-blue-600 text-white rounded-lg py-2 px-4" // Active mobile link style
+                  : "hover:text-blue-400"
+              } transition duration-300`}
               onClick={() => setIsOpen(false)}
             >
               {link.name}
+              {/* Mobile Active Link Underline */}
+              {pathname === link.path && (
+                <span className="block mt-1 w-full h-1 bg-blue-600 transition-all duration-300"></span>
+              )}
             </Link>
           </motion.div>
         ))}
