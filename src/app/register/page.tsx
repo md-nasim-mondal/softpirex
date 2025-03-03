@@ -122,51 +122,52 @@ const Register = () => {
   };
 
   return (
-    <section className='mx-6 md:mx-10 py-2 md:py-8 p-2 md:px-4 flex flex-col items-center'>
-      <h2 className='text-2xl md:text-4xl font-semibold text-center mb-8 font-kreonSerif'>
+    <section className=" py-2 md:py-8 p-2 md:px-4 flex flex-col items-center  bg-gradient-to-r from-gray-900 to-black text-white min-h-screen">
+      <h2 className="text-2xl md:text-4xl font-semibold text-center mb-8 font-kreonSerif">
         Please, Register
       </h2>
-      <div className='flex-1 flex flex-col items-center gap-2 lg:w-1/2'>
-      <SocialLogin/>
-        <div className='flex items-center w-full my-4'>
-          <hr className='w-full dark:text-gray-600' />
-          <p className='px-3 dark:text-gray-600'>OR</p>
-          <hr className='w-full dark:text-gray-600' />
+      <div className="flex-1 flex flex-col items-center gap-2 lg:w-1/2">
+        <SocialLogin />
+        <div className="flex items-center w-full my-4">
+          <hr className="w-full dark:text-gray-600" />
+          <p className="px-3 dark:text-gray-600">OR</p>
+          <hr className="w-full dark:text-gray-600" />
         </div>
         <form
           onSubmit={handleSubmit(handleRegister)}
-          className='w-full flex flex-col gap-6 px-4 lg:px-8 py-4 lg:py-6 shadow-lg shadow-blue-500 border border-blue-500 rounded-md'>
-          <h3 className='text-lg md:text-xl font-medium text-center'>
+          className="w-full flex flex-col gap-6 px-4 lg:px-8 py-4 lg:py-6 shadow-lg shadow-blue-500 border border-blue-500 rounded-md"
+        >
+          <h3 className="text-lg md:text-xl font-medium text-center">
             Register with Email & Password
           </h3>
           {/* Name */}
-          <div className='flex flex-col gap-3'>
-            <label className='font-medium' htmlFor='name'>
+          <div className="flex flex-col gap-3">
+            <label className="font-medium" htmlFor="name">
               Your Name *
             </label>
-            <div className='flex items-center gap-2 bg-transparent pl-2 rounded-lg border border-white'>
-              <FaUserEdit className='text-gray-500' />
+            <div className="flex items-center gap-2 bg-transparent pl-2 rounded-lg border border-white">
+              <FaUserEdit className="text-gray-500" />
               <input
                 {...register("name", {
                   required: "You must provide your name.",
                 })}
-                className='px-2 rounded-r-lg py-1 bg-transparent w-full focus:outline-0'
-                type='text'
-                id='name'
-                placeholder='Enter Your Name'
+                className="px-2 rounded-r-lg py-1 bg-transparent w-full focus:outline-0"
+                type="text"
+                id="name"
+                placeholder="Enter Your Name"
               />
             </div>
             {errors.name && (
-              <p className='text-red-700'>{errors.name.message}</p>
+              <p className="text-red-700">{errors.name.message}</p>
             )}
           </div>
           {/* Email */}
-          <div className='flex flex-col gap-3'>
-            <label className='font-medium' htmlFor='email'>
+          <div className="flex flex-col gap-3">
+            <label className="font-medium" htmlFor="email">
               Your Email *
             </label>
-            <div className='flex items-center gap-2 bg-transparent pl-2 rounded-lg border border-white'>
-              <MdEmail className='text-gray-500' />
+            <div className="flex items-center gap-2 bg-transparent pl-2 rounded-lg border border-white">
+              <MdEmail className="text-gray-500" />
               <input
                 {...register("email", {
                   required: "Provide a valid email address!",
@@ -175,55 +176,56 @@ const Register = () => {
                     message: "Invalid email address",
                   },
                 })}
-                className='px-2 rounded-r-lg py-1 bg-transparent w-full focus:outline-0'
-                type='email'
-                id='email'
-                placeholder='Enter Your Email'
+                className="px-2 rounded-r-lg py-1 bg-transparent w-full focus:outline-0"
+                type="email"
+                id="email"
+                placeholder="Enter Your Email"
               />
             </div>
             {errors.email && (
-              <p className='text-red-700'>{errors.email.message}</p>
+              <p className="text-red-700">{errors.email.message}</p>
             )}
           </div>
           {/* Profile Picture */}
-          <div className='flex flex-col gap-3'>
-            <label className='font-medium' htmlFor='picture'>
+          <div className="flex flex-col gap-3">
+            <label className="font-medium" htmlFor="picture">
               Choose Your Profile Picture *
             </label>
-            <div className='flex items-center gap-2 bg-transparent pl-2 py-2 rounded-lg border border-white'>
-              <MdImage className='text-gray-500' />
-              <div className='w-full'>
-                <div className='relative w-full'>
+            <div className="flex items-center gap-2 bg-transparent pl-2 py-2 rounded-lg border border-white">
+              <MdImage className="text-gray-500" />
+              <div className="w-full">
+                <div className="relative w-full">
                   <input
                     {...register("picture", {
                       required: "Provide an Image File!",
                     })}
-                    className='absolute w-full h-full opacity-0 cursor-pointer bg-transparent focus:outline-0'
-                    type='file'
-                    id='picture'
-                    accept='image/jpeg, image/bmp, image/png, image/gif'
+                    className="absolute w-full h-full opacity-0 cursor-pointer bg-transparent focus:outline-0"
+                    type="file"
+                    id="picture"
+                    accept="image/jpeg, image/bmp, image/png, image/gif"
                     onChange={(e) => handleImageChange(e)}
                   />
                   <label
-                    htmlFor='picture'
-                    className='px-2 rounded-r-lg py-1 text-gray-500 hover:bg-gray-500 hover:text-white transition-all duration-500 block w-full overflow-hidden whitespace-nowrap overflow-ellipsis absolute top-1/2 left-0 -translate-y-1/2 bg-transparent cursor-pointer'>
+                    htmlFor="picture"
+                    className="px-2 rounded-r-lg py-1 text-gray-500 hover:bg-gray-500 hover:text-white transition-all duration-500 block w-full overflow-hidden whitespace-nowrap overflow-ellipsis absolute top-1/2 left-0 -translate-y-1/2 bg-transparent cursor-pointer"
+                  >
                     {imageUploading ? "Image Uploading" : imageFileName}
                   </label>
                 </div>
               </div>
             </div>
             {errors.picture && (
-              <p className='text-red-700'>{errors.picture.message}</p>
+              <p className="text-red-700">{errors.picture.message}</p>
             )}
           </div>
           {/* Password */}
-          <div className='flex flex-col gap-3'>
-            <label className='font-medium' htmlFor='password'>
+          <div className="flex flex-col gap-3">
+            <label className="font-medium" htmlFor="password">
               Your Password *
             </label>
-            <div className='flex items-center gap-2 bg-transparent pl-2 rounded-lg border border-white'>
-              <RiLockPasswordFill className='text-gray-500' />
-              <div className='relative w-full'>
+            <div className="flex items-center gap-2 bg-transparent pl-2 rounded-lg border border-white">
+              <RiLockPasswordFill className="text-gray-500" />
+              <div className="relative w-full">
                 <input
                   {...register("password", {
                     required: "You must choose a password.",
@@ -243,39 +245,42 @@ const Register = () => {
                         "Password must contain a symbol!",
                     },
                   })}
-                  className='px-2 rounded-r-lg py-1 bg-transparent w-full focus:outline-0'
+                  className="px-2 rounded-r-lg py-1 bg-transparent w-full focus:outline-0"
                   type={showPassword ? "text" : "password"}
-                  id='password'
-                  placeholder='Enter Your Password'
+                  id="password"
+                  placeholder="Enter Your Password"
                 />
                 <span
-                  className='absolute top-1/2 right-2 -translate-y-1/2 cursor-pointer'
-                  onClick={() => setShowPassword(!showPassword)}>
+                  className="absolute top-1/2 right-2 -translate-y-1/2 cursor-pointer"
+                  onClick={() => setShowPassword(!showPassword)}
+                >
                   {showPassword ? <FaEyeSlash /> : <FaEye />}
                 </span>
               </div>
             </div>
             {errors.password && (
-              <p className='text-red-700'>{errors.password.message}</p>
+              <p className="text-red-700">{errors.password.message}</p>
             )}
           </div>
           <button
-            type='submit'
+            type="submit"
             className={`text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-semibold rounded-lg text-lg px-5 py-2 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 ${
               registerLoading || (imageUploading && "bg-gray-200 text-black")
             }`}
-            disabled={registerLoading || imageUploading}>
+            disabled={registerLoading || imageUploading}
+          >
             {registerLoading
               ? buttonLoader
               : imageUploading
               ? "Image Uploading"
               : "Register New Account"}
           </button>
-          <p className='text-center text-sm md:text-base font-medium'>
+          <p className="text-center text-sm md:text-base font-medium">
             Already have an Account?{" "}
             <Link
-              href='/login'
-              className='hover:pl-4 text-[#3c5cc3] font-bold hover:text-white transition-all duration-500'>
+              href="/login"
+              className="hover:pl-4 text-[#3c5cc3] font-bold hover:text-white transition-all duration-500"
+            >
               Login Here!
             </Link>
           </p>

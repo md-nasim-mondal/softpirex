@@ -74,7 +74,7 @@ const Login = () => {
 
   return (
     <>
-      <section className='flex flex-col text-white items-center  min-h-screen justify-center bg-gradient-to-r from-gray-900 to-black'>
+      <section className='py-2 md:py-8 p-2 md:px-4 flex flex-col items-center  bg-gradient-to-r from-gray-900 to-black text-white min-h-screen'>
         <h2 className='text-2xl md:text-4xl font-semibold text-center mb-8 font-kreonSerif'>
           Please, Login
         </h2>
