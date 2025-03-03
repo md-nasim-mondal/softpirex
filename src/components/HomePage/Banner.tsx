@@ -53,7 +53,7 @@ export default function Banner() {
 
           <Link href="/projects">
             <motion.button
-              className="mt-6 lg:mt-12 mb-8 md:mb-16 bg-blue-600 hover:bg-blue-700 px-4 py-1 md:px-6 lg:py-3 text-lg font-semibold rounded-lg transition"
+              className="mt-6 lg:mt-12 mb-8 md:mb-16 bg-[#3F51B5] hover:bg-blue-700 px-4 py-1 md:px-6 lg:py-3 text-lg font-semibold rounded-lg transition"
               initial={{ scale: 0.8, opacity: 0 }}
               whileInView={{ scale: 1, opacity: 1 }}
               transition={{ duration: 0.5, delay: 0.3 }}

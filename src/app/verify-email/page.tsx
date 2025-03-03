@@ -57,9 +57,9 @@ const VerifyEmail = () => {
   if (valid === false) {
     return (
       <div className="container min-h-[calc(100vh-30rem)] flex flex-col justify-center items-center mx-auto border w-full my-16 rounded-3xl bg-gray-900  p-8 text-center relative">
-        <div className="absolute inset-0 bg-blue-500 opacity-10 blur-3xl rounded-3xl"></div>
+        <div className="absolute inset-0 bg-[#3F51B5] opacity-10 blur-3xl rounded-3xl"></div>
 
-        <div className="flex items-center justify-center w-16 h-16 bg-blue-500 text-white rounded-full shadow-lg animate-pulse">
+        <div className="flex items-center justify-center w-16 h-16 bg-[#3F51B5] text-white rounded-full shadow-lg animate-pulse">
           📧
         </div>
 
@@ -80,7 +80,7 @@ const VerifyEmail = () => {
 
         <Link
           href="/login"
-          className="mt-6 px-6 py-2 text-white bg-blue-600 hover:bg-blue-700 rounded-lg font-semibold transition"
+          className="mt-6 px-6 py-2 text-white bg-[#3F51B5] hover:bg-blue-700 rounded-lg font-semibold transition"
         >
           Go to Login
         </Link>
@@ -90,13 +90,13 @@ const VerifyEmail = () => {
 
   return (
     <div className="container min-h-[calc(100vh-30rem)] flex flex-col justify-center items-center mx-auto w-full my-16 p-8 border bg-gray-900 rounded-3xl shadow-xl border-gray-700 relative">
-      <div className="absolute inset-0 bg-blue-600 opacity-15 blur-3xl rounded-3xl"></div>
+      <div className="absolute inset-0 bg-[#3F51B5] opacity-15 blur-3xl rounded-3xl"></div>
 
-      <div className="flex items-center justify-center w-16 h-16 bg-blue-600 text-white rounded-full shadow-lg animate-pulse transform hover:scale-105 transition-all">
+      <div className="flex items-center justify-center w-16 h-16 bg-[#3F51B5] text-white rounded-full shadow-lg animate-pulse transform hover:scale-105 transition-all">
         ✔️
       </div>
 
-      <h1 className="text-blue-600 text-3xl font-semibold mt-6">
+      <h1 className="text-[#3F51B5] text-3xl font-semibold mt-6">
         Verify Your Email
       </h1>
       <p className="text-gray-400 mt-2 text-center">
@@ -105,7 +105,7 @@ const VerifyEmail = () => {
       </p>
 
       <button
-        className="mt-8 px-8 py-3  text-white bg-blue-600 hover:bg-blue-700 rounded-lg font-semibold shadow-md transition disabled:bg-gray-500"
+        className="mt-8 px-8 py-3  text-white bg-[#3F51B5] hover:bg-blue-700 rounded-lg font-semibold shadow-md transition disabled:bg-gray-500"
         onClick={verifyEmail}
         disabled={!valid}
       >

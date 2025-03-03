@@ -33,7 +33,7 @@ export default function HeroSection() {
             'Easy to Customize',
           ].map((text, index) => (
             <div key={index} className="flex items-center gap-2 bg-[#0A0A14] px-4 py-2 rounded-full border border-gray-700">
-              <span className="bg-blue-500 text-white rounded-full w-8 h-8 flex items-center justify-center">✔</span>
+              <span className="bg-[#3F51B5] text-white rounded-full w-8 h-8 flex items-center justify-center">✔</span>
               <span className="text-white text-base font-medium">{text}</span>
             </div>
           ))}
@@ -59,7 +59,7 @@ export default function HeroSection() {
                   className="rounded-xl object-cover w-full h-full"
                 />
                 <div className="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  <button className="bg-blue-600 text-white px-4 py-2 rounded-lg font-semibold">View Demo</button>
+                  <button className="bg-[#3F51B5] text-white px-4 py-2 rounded-lg font-semibold">View Demo</button>
                 </div>
               </div>
             </motion.div>

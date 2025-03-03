@@ -72,7 +72,7 @@ const ResetPasswordModal: React.FC<ResetPasswordModalProps> = ({
         <button
           type='submit'
           disabled={isLoading}
-          className={`w-full bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700 transition font-semibold text-center ${
+          className={`w-full bg-[#3F51B5] text-white py-2 rounded-lg hover:bg-blue-700 transition font-semibold text-center ${
             isLoading && "bg-gray-400 cursor-not-allowed"
           }`}>
           {isLoading ? "Request Sending!!" : "Send Request"}

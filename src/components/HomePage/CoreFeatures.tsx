@@ -88,7 +88,7 @@ const features: Feature[] = [
   {
     title: "Fontawesome Pro",
     description: "Premium Icons",
-    icon: <FaFontAwesome className="text-blue-600 text-5xl mx-auto" />,
+    icon: <FaFontAwesome className="text-[#3F51B5] text-5xl mx-auto" />,
   },
   {
     title: "Speed Optimization",

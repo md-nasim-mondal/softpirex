@@ -39,21 +39,21 @@ const Navbar = () => {
               key={index}
               className={`relative ${
                 pathname === link.path
-                  ? "text-blue-600 bg-gray-800 rounded-lg py-1 px-3" // Active link style
+                  ? "text-[#3F51B5] bg-gray-800 rounded-lg py-1 px-3" // Active link style
                   : "hover:text-blue-400 transition duration-300"
               }`}
             >
               <Link href={link.path}>{link.name}</Link>
               {/* Active Link Underline */}
               {pathname === link.path && (
-                <span className="absolute bottom-0 left-0 w-full h-1 bg-blue-600 transition-all duration-300"></span>
+                <span className="absolute bottom-0 left-0 w-full h-1 bg-[#3F51B5] transition-all duration-300"></span>
               )}
             </li>
           ))}
         </ul>
 
         {/* Purchase Button */}
-        <button className="hidden md:flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white px-5 py-2 rounded-lg font-semibold transition duration-300">
+        <button className="hidden md:flex items-center gap-2 bg-[#3F51B5] hover:bg-blue-700 text-white px-5 py-2 rounded-lg font-semibold transition duration-300">
           Order Now
           <motion.span
             initial={{ rotate: 45 }}
@@ -95,7 +95,7 @@ const Navbar = () => {
               href={link.path}
               className={`block ${
                 pathname === link.path
-                  ? "bg-blue-600 text-white rounded-lg py-2 px-4" // Active mobile link style
+                  ? "bg-[#3F51B5] text-white rounded-lg py-2 px-4" // Active mobile link style
                   : "hover:text-blue-400"
               } transition duration-300`}
               onClick={() => setIsOpen(false)}
@@ -103,7 +103,7 @@ const Navbar = () => {
               {link.name}
               {/* Mobile Active Link Underline */}
               {pathname === link.path && (
-                <span className="block mt-1 w-full h-1 bg-blue-600 transition-all duration-300"></span>
+                <span className="block mt-1 w-full h-1 bg-[#3F51B5] transition-all duration-300"></span>
               )}
             </Link>
           </motion.div>
@@ -112,7 +112,7 @@ const Navbar = () => {
         {/* Mobile Purchase Button */}
         <button
           onClick={() => setIsOpen(false)}
-          className="bg-blue-600 hover:bg-blue-700 text-white px-5 py-2 rounded-lg font-semibold transition duration-300"
+          className="bg-[#3F51B5] hover:bg-blue-700 text-white px-5 py-2 rounded-lg font-semibold transition duration-300"
         >
           Order Now ↗
         </button>

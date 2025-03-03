@@ -51,7 +51,7 @@ const Contacts: FC = () => {
   return (
     <div className="container mx-auto text-white py-16 px-8 flex flex-col md:flex-row justify-center items-center gap-12 bg-gradient-to-l from-black via-gray-900 to-black rounded-lg ">
       <section className="w-full md:w-1/3">
-        <h2 className="text-4xl font-semibold text-blue-600 mb-4">
+        <h2 className="text-4xl font-semibold text-[#3F51B5] mb-4">
           Get in Touch
         </h2>
         <p className="mt-2 text-gray-400 text-lg">
@@ -59,7 +59,7 @@ const Contacts: FC = () => {
         </p>
         <div className="mt-6 space-y-6">
           <div className="flex items-center gap-4">
-            <div className="bg-blue-600 p-3 rounded-lg shadow-lg hover:shadow-xl transition duration-300">
+            <div className="bg-[#3F51B5] p-3 rounded-lg shadow-lg hover:shadow-xl transition duration-300">
               <MdMarkEmailUnread className="text-white text-xl" />
             </div>
             <div>
@@ -68,7 +68,7 @@ const Contacts: FC = () => {
             </div>
           </div>
           <div className="flex items-center gap-4">
-            <div className="bg-blue-600 p-3 rounded-lg shadow-lg hover:shadow-xl transition duration-300">
+            <div className="bg-[#3F51B5] p-3 rounded-lg shadow-lg hover:shadow-xl transition duration-300">
               <FaPhoneAlt className="text-white text-xl" />
             </div>
             <div>
@@ -77,7 +77,7 @@ const Contacts: FC = () => {
             </div>
           </div>
           <div className="flex items-center gap-4">
-            <div className="bg-blue-600 p-3 rounded-lg shadow-lg hover:shadow-xl transition duration-300">
+            <div className="bg-[#3F51B5] p-3 rounded-lg shadow-lg hover:shadow-xl transition duration-300">
               <FaLocationDot className="text-white text-xl" />
             </div>
             <div>
