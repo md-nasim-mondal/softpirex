@@ -121,7 +121,7 @@ const FeatureCard: React.FC<Feature> = ({ title, description, icon }) => (
 // Core Features Component
 const CoreFeatures: React.FC = () => {
   return (
-    <section className="bg-black text-white py-16">
+    <section className="bg-gradient-to-br from-gray-900 to-black text-white py-16">
       <div className="container mx-auto px-6">
         <p className="text-white uppercase mb-4 text-center">
           Build With Incredible

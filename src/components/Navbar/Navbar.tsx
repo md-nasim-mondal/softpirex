@@ -39,21 +39,20 @@ const Navbar = () => {
               key={index}
               className={`relative ${
                 pathname === link.path
-                  ? "text-[#3F51B5] bg-gray-800 rounded-lg py-1 px-3" // Active link style
+                  ? "text-[#495dd1] bg-gray-900 rounded-lg py-1 px-3" // Active link style
                   : "hover:text-blue-400 transition duration-300"
               }`}
             >
               <Link href={link.path}>{link.name}</Link>
-              {/* Active Link Underline */}
               {pathname === link.path && (
-                <span className="absolute bottom-0 left-0 w-full h-1 bg-[#3F51B5] transition-all duration-300"></span>
+                <span className="absolute bottom-0 left-0 w-full h-1 bg-[#495dd1] transition-all duration-300"></span>
               )}
             </li>
           ))}
         </ul>
 
         {/* Purchase Button */}
-        <button className="hidden md:flex items-center gap-2 bg-[#3F51B5] hover:bg-blue-700 text-white px-5 py-2 rounded-lg font-semibold transition duration-300">
+        <Link href="/contacts" className="hidden md:flex items-center gap-2 bg-[#3F51B5] hover:bg-blue-700 text-white px-5 py-2 rounded-lg font-semibold transition duration-300">
           Order Now
           <motion.span
             initial={{ rotate: 45 }}
@@ -62,7 +61,7 @@ const Navbar = () => {
           >
             ↗
           </motion.span>
-        </button>
+        </Link>
 
         {/* Mobile Menu Button */}
         <button className="md:hidden" onClick={() => setIsOpen(true)}>
@@ -110,18 +109,17 @@ const Navbar = () => {
         ))}
 
         {/* Mobile Purchase Button */}
-        <button
+        <Link href="/contacts"
           onClick={() => setIsOpen(false)}
           className="bg-[#3F51B5] hover:bg-blue-700 text-white px-5 py-2 rounded-lg font-semibold transition duration-300"
         >
           Order Now ↗
-        </button>
+        </Link>
       </motion.div>
     </nav>
   );
 };
 
 // contact page modified"
-
 
 export default Navbar;
