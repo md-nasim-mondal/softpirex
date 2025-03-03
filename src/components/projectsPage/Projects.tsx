@@ -99,7 +99,7 @@ const Projects: FC = () => {
                 <h3 className="text-xl font-semibold text-gray-100 ">
                   {project.title}
                 </h3>
-                <span className="text-sm font-bold text-white bg-blue-500 px-3 rounded-full">
+                <span className="text-sm  text-white bg-blue-500 px-3 rounded-full">
                   {project.category}
                 </span>
               </div>

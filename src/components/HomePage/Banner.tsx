@@ -1,9 +1,10 @@
-'use client';
+"use client";
 
-import Image from 'next/image';
-import CountUp from 'react-countup';
-import { motion } from 'framer-motion';
-import { useState, useEffect, useRef } from 'react';
+import Image from "next/image";
+import CountUp from "react-countup";
+import { motion } from "framer-motion";
+import { useState, useEffect, useRef } from "react";
+import Link from "next/link";
 
 export default function Banner() {
   const countUpRef = useRef(null);
@@ -16,7 +17,7 @@ export default function Banner() {
       ([entry]) => {
         setIsVisible(entry.isIntersecting);
       },
-      { threshold: 0.5 } 
+      { threshold: 0.5 }
     );
 
     if (currentRef) {
@@ -42,27 +43,35 @@ export default function Banner() {
       <div className="flex container flex-col md:flex-row items-center justify-between w-full mt-12 space-y-6 md:space-y-0">
         {/* Text Section */}
         <div className="text-left md:w-2/3">
-          <p className="text-lg text-gray-400 font-bold uppercase">Created by Envato Creative Heroes</p>
+          <p className="text-lg text-gray-400 font-bold uppercase">
+            Created by Creative Heroes
+          </p>
           <h1 className="text-3xl lg:text-5xl font-bold mt-4">
-            Web Agency <br /> HTML Template
+            We Are Development <br />
+            Agency Softpirex
           </h1>
 
-          <motion.button
-            className="mt-6 lg:mt-12 mb-8 md:mb-16 bg-blue-600 hover:bg-blue-700 px-4 py-1 md:px-6 lg:py-3 text-lg font-semibold rounded-lg transition"
-            initial={{ scale: 0.8, opacity: 0 }}
-            whileInView={{ scale: 1, opacity: 1 }}
-            transition={{ duration: 0.5, delay: 0.3 }}
-            viewport={{ amount: 0.2 }}
-          >
-            Pre-Made Demos ↗
-          </motion.button>
+          <Link href="/projects">
+            <motion.button
+              className="mt-6 lg:mt-12 mb-8 md:mb-16 bg-blue-600 hover:bg-blue-700 px-4 py-1 md:px-6 lg:py-3 text-lg font-semibold rounded-lg transition"
+              initial={{ scale: 0.8, opacity: 0 }}
+              whileInView={{ scale: 1, opacity: 1 }}
+              transition={{ duration: 0.5, delay: 0.3 }}
+              viewport={{ amount: 0.2 }}
+            >
+              Pre-Made Demos ↗
+            </motion.button>
+          </Link>
 
           {/* Stats Section */}
-          <div ref={countUpRef} className="flex mt-10 md:mt-4 lg:mt-10 space-x-6 text-center">
-            {[ 
-              { number: 24, text: 'Dark & Light Demo' },
-              { number: 25, text: 'Dark & Light Inner Pages' },
-              { number: 150, text: 'Section Elements' },
+          <div
+            ref={countUpRef}
+            className="flex mt-10 md:mt-4 lg:mt-10 space-x-6 text-center"
+          >
+            {[
+              { number: 24, text: "Dark & Light Demo" },
+              { number: 25, text: "Dark & Light Inner Pages" },
+              { number: 150, text: "Section Elements" },
             ].map((item, index) => (
               <motion.div
                 key={index}
@@ -72,7 +81,12 @@ export default function Banner() {
                 viewport={{ amount: 0.2 }}
               >
                 <p className="text-4xl font-bold">
-                  {isVisible ? <CountUp start={0} end={item.number} duration={2} /> : 0}+
+                  {isVisible ? (
+                    <CountUp start={0} end={item.number} duration={2} />
+                  ) : (
+                    0
+                  )}
+                  +
                 </p>
                 <p className="text-gray-400">{item.text}</p>
               </motion.div>
