@@ -1,4 +1,5 @@
 import Projects from "@/components/projectsPage/Projects";
+import ServicesHeader from "@/components/reusable/SectionHeader";
 import React from "react";
 
 export const metadata = {
@@ -65,23 +66,26 @@ const page = () => {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaData) }}
       />
 
-      <section className="container mx-auto text-center space-y-5 pt-14">
-        <p className="text-xl text-blue-600 underline underline-offset-8">
-          Web Development Successful Projects
-        </p>
-        <h1 className="text-2xl md:text-3xl lg:text-5xl font-bold mb-4">
-          Transforming <strong className="text-blue-600 underline">Digital Ideas</strong> Into Successful Websites with{" "}
-          <strong className="text-blue-600 underline">SoftPirex</strong>
-        </h1>
+      <ServicesHeader>
+        <article className="container mx-auto text-center py-6">
+          <h2 className="text-xl font-bold text-blue-600 underline">
+            Successful Projects
+          </h2>
+          <h2 className="text-4xl mt-2 font-bold ">
+            Transform your idea into real with{" "}
+            <strong className="text-blue-600">softpirex</strong>
+          </h2>
 
-        <p className="text-lg font-light w-[80%] mx-auto">
-          Explore our curated collection of web development projects showcasing
-          custom website solutions, e-commerce platforms, and enterprise web
-          applications. As a leading web development agency, we specialize in
-          creating responsive, user-friendly websites that drive business growth
-          and enhance digital presence across various industries.
-        </p>
-      </section>
+          <p className="mt-4 text-sm w-full md:w-[80%] mx-auto">
+            Explore our curated collection of web development projects
+            showcasing custom website solutions, e-commerce platforms, and
+            enterprise web applications. As a leading web development agency, we
+            specialize in creating responsive, user-friendly websites that drive
+            business growth and enhance digital presence across various
+            industries.
+          </p>
+        </article>
+      </ServicesHeader>
 
       <Projects />
 

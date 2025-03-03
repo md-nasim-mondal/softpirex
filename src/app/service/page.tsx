@@ -1,5 +1,5 @@
 import ServicesCard from "@/components/ServicesPage/ServicesCard";
-import ServicesHeader from "@/components/ServicesPage/ServicesHeader";
+import ServicesHeader from "@/components/reusable/SectionHeader";
 import React from "react";
 
 const services = [
@@ -43,9 +43,23 @@ const services = [
 
 const ServiceSection = () => {
   return (
-    <main className=" min-h-screen text-white">
-      <ServicesHeader />
-      <section className=" bg-gradient-to-r from-gray-900 to-black">
+    <main className=" text-white">
+      <ServicesHeader>
+        <article className="container mx-auto text-center py-6">
+          <h2 className="text-xl font-bold text-blue-600 underline ">
+            Our Services
+          </h2>
+          <h2 className="text-4xl mt-2 font-bold ">
+            What We <span className="text-blue-600"> Served</span>
+          </h2>
+          <p className="mt-4 text-sm w-full md:w-[80%] mx-auto">
+            We are totally focused on delivering high quality Cloud Service &
+            software solution. Bug Finder is one of the pioneers in providing
+            I.T. infrastructure and solutions on various platforms.
+          </p>
+        </article>
+      </ServicesHeader>
+      <section className="min-h-screen bg-gradient-to-r from-gray-900 to-black">
         <div className="container mx-auto py-16 grid md:grid-cols-3 gap-16">
           {services.map((service, index) => (
             <ServicesCard key={index} index={index} service={service} />
