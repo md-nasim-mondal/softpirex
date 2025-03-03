@@ -59,19 +59,19 @@ const page = () => {
   };
 
   return (
-    <main className="min-h-screen bg-gray-900  text-white">
+    <main className="min-h-screen flex flex-col justify-between bg-gray-900  text-white">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaData) }}
       />
 
-      <section className="container mx-auto text-center space-y-5">
+      <section className="container mx-auto text-center space-y-5 pt-14">
         <p className="text-xl text-blue-600 underline underline-offset-8">
-          Web Development Success Stories
+          Web Development Successful Projects
         </p>
         <h1 className="text-2xl md:text-3xl lg:text-5xl font-bold mb-4">
-          Transforming Digital Ideas Into Successful Websites with{" "}
-          <strong className="text-blue-600">SoftPirex</strong>
+          Transforming <strong className="text-blue-600 underline">Digital Ideas</strong> Into Successful Websites with{" "}
+          <strong className="text-blue-600 underline">SoftPirex</strong>
         </h1>
 
         <p className="text-lg font-light w-[80%] mx-auto">

@@ -1,5 +1,4 @@
 import React from "react";
-import { TextHoverEffectDemo } from "./TextHoverEffectDemo";
 
 const Footer = () => {
   return (
@@ -77,7 +76,6 @@ const Footer = () => {
       >
         &copy; 2025 SOFTPIREX Inc. All rights reserved.
       </div>
-      <TextHoverEffectDemo />
     </footer>
   );
 };
