@@ -27,7 +27,7 @@ const SellYourProducts: FC = () => {
             <List info="Domain and Hosting setup" />
           </ul>
 
-          <button className="bg-blue-600 inline-flex items-center gap-2 text-white px-6 py-3 hover:bg-blue-700 transition-colors">
+          <button className="bg-[#3F51B5] inline-flex items-center gap-2 text-white px-6 py-3 hover:bg-blue-700 transition-colors">
             View Details <FaArrowRight className="-rotate-45 " />
           </button>
         </div>

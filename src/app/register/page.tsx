@@ -264,7 +264,7 @@ const Register = () => {
           </div>
           <button
             type="submit"
-            className={`text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-semibold rounded-lg text-lg px-5 py-2 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 ${
+            className={`text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-semibold rounded-lg text-lg px-5 py-2 text-center dark:bg-[#3F51B5] dark:hover:bg-blue-700 dark:focus:ring-blue-800 ${
               registerLoading || (imageUploading && "bg-gray-200 text-black")
             }`}
             disabled={registerLoading || imageUploading}

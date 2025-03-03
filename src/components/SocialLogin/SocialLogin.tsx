@@ -15,7 +15,7 @@ const SocialLogin = () => {
           aria-label='Login with Google'
           type='button'
 		  onClick={() => handleClick()}
-          className='flex items-center justify-center w-full px-2 py-1 gap-2 border rounded-md border-blue-600 bg-blue-600 text-[#fff] hover:text-blue-600 hover:bg-transparent transition-all duration-500'>
+          className='flex items-center justify-center w-full px-2 py-1 gap-2 border rounded-md border-blue-600 bg-[#3F51B5] text-[#fff] hover:text-[#3F51B5] hover:bg-transparent transition-all duration-500'>
           <FaGoogle />
           <p>Google</p>
         </button>

@@ -41,7 +41,7 @@ you towards sustainable growth and meaningful connections.` },
                 onClick={() => toggleAccordion(index)}
               >
                 <div>
-                  <span className="text-blue-600 text-3xl font-bold mr-2">{step.number}</span>
+                  <span className="text-[#3F51B5] text-3xl font-bold mr-2">{step.number}</span>
                   <span className="text-3xl font-semibold mr-5">{step.title}</span>
                 </div>
                 <span className="w-6 h-6 flex items-center justify-center rounded-full bg-gray-300 text-black">
