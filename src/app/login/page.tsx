@@ -74,11 +74,11 @@ const Login = () => {
 
   return (
     <>
-      <section className='mx-6 md:mx-10 py-2 md:py-8 p-2 md:px-4 flex flex-col items-center'>
+      <section className='flex flex-col text-white items-center  min-h-screen justify-center bg-gradient-to-r from-gray-900 to-black'>
         <h2 className='text-2xl md:text-4xl font-semibold text-center mb-8 font-kreonSerif'>
           Please, Login
         </h2>
-        <div className='flex-1 flex flex-col items-center gap-2 lg:w-1/2'>
+        <div className='flex-1 flex flex-col items-center gap-2  lg:w-1/2'>
           <SocialLogin />
           <div className='flex items-center w-full my-4'>
             <hr className='w-full dark:text-gray-600' />
