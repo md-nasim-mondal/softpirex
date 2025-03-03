@@ -89,7 +89,7 @@ const VerifyResetPassword = () => {
            
 
 
-<Link  href='/login' className="mt-6 px-6 py-2 text-white bg-blue-600 hover:bg-blue-700 rounded-lg font-semibold transition">
+<Link  href='/login' className="mt-6 px-6 py-2 text-white bg-[#3F51B5] hover:bg-blue-700 rounded-lg font-semibold transition">
     Go to Login
 </Link>
 </div>

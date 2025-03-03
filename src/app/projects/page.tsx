@@ -83,28 +83,28 @@ const page = () => {
         <h2 className="text-2xl font-semibold mb-4">
           Why Choose SoftPirex for Web Development?
         </h2>
-        <p className="text-blue-600 max-w-3xl mx-auto">
+        <p className="text-[#3F51B5] max-w-3xl mx-auto">
           Our portfolio demonstrates expertise in modern web technologies
           including React, Next.js, Node.js, and headless CMS implementations.
           We deliver:
         </p>
         <ul className="grid md:grid-cols-3 gap-4 mt-6 text-white text-center">
-          <li className="p-4 bg-blue-600 rounded-lg">
+          <li className="p-4 bg-[#3F51B5] rounded-lg">
             Custom Web Application Development
           </li>
-          <li className="p-4 bg-blue-600 rounded-lg">
+          <li className="p-4 bg-[#3F51B5] rounded-lg">
             E-commerce & Marketplace Solutions
           </li>
-          <li className="p-4 bg-blue-600 rounded-lg">
+          <li className="p-4 bg-[#3F51B5] rounded-lg">
             Enterprise-grade Website Development
           </li>
-          <li className="p-4 bg-blue-600 rounded-lg">
+          <li className="p-4 bg-[#3F51B5] rounded-lg">
             Mobile-First Responsive Design
           </li>
-          <li className="p-4 bg-blue-600 rounded-lg">
+          <li className="p-4 bg-[#3F51B5] rounded-lg">
             API Integration & Microservices
           </li>
-          <li className="p-4 bg-blue-600 rounded-lg">
+          <li className="p-4 bg-[#3F51B5] rounded-lg">
             Performance Optimization
           </li>
         </ul>

@@ -73,7 +73,7 @@ const ContactForm: FC<ContactFormProps> = ({
       <button
         type="submit"
         disabled={isLoading}
-        className={`w-full bg-gradient-to-r from-blue-600 to-blue-800 text-white p-3 rounded-lg flex justify-center items-center gap-2 font-semibold ${
+        className={`w-full bg-gradient-to-r from-blue-800 to-[#3F51B5] text-white p-3 rounded-lg flex justify-center items-center gap-2 font-semibold ${
           isLoading ? "bg-red-300 cursor-not-allowed" : ""
         }`}
       >

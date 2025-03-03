@@ -32,7 +32,7 @@ const ServicesCard: FC<ServicesCardType> = ({ index, service }) => {
       </div>
       <h3 className="text-xl font-semibold  mt-6">{service.title}</h3>
       <p className=" mt-2 text-sm leading-relaxed">{service.description}</p>
-      <a href="#" className="mt-4 inline-block text-blue-600 font-semibold">
+      <a href="#" className="mt-4 inline-block text-[#3F51B5] font-semibold">
         More Details →
       </a>
     </div>

@@ -7,7 +7,7 @@ import React from "react";
 const Process: React.FC = () => {
   return (
     <section className=" mt-20 py-20 container mx-auto px-4 text-white">
-      <h1 className="text-4xl font-bold text-blue-600">
+      <h1 className="text-4xl font-bold text-[#3F51B5]">
         This is <span className="line-through">not</span> the{" "}
         <span className="italic font-serif">genuine</span> <br /> story
       </h1>
