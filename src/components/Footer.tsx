@@ -1,12 +1,14 @@
 import React from "react";
 
 const Footer = () => {
+  const date = new Date()
+  const year = date.getFullYear()
   return (
     <footer className="w-full pt-10 px-5 lg:px-20 bg-black text-white">
       <div className="container mx-auto flex flex-col lg:flex-row justify-between items-start lg:items-center">
         <div>
           <h2 className="text-lg font-bold">SOFTPIREX</h2>
-          <p className="text-sm text-gray-400">Made by SOFTPIREX</p>
+          <p className="text-sm text-gray-400">Made by Softpirex</p>
         </div>
         <div className="mt-5 lg:mt-0 grid grid-cols-1 md:grid-cols-3 gap-10 text-gray-300">
           <div>
@@ -74,7 +76,7 @@ const Footer = () => {
       <div
         className={` border-t border-gray-700 mt-5 pt-5 text-gray-400 text-sm`}
       >
-        &copy; 2025 SOFTPIREX Inc. All rights reserved.
+        &copy; {year} SOFTPIREX  All rights reserved.
       </div>
     </footer>
   );
