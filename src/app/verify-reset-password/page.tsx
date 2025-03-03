@@ -12,7 +12,7 @@ const VerifyResetPassword = () => {
   const [isLoading, setIsLoading] = useState(false);
   const searchParams = useSearchParams();
   const token = searchParams.get("token");
-  const [valid, setValid] = useState<boolean | null>(true);
+  const [valid, setValid] = useState<boolean | null>(null);
   const [formData, setFormData] = useState({
     password: "",
     cPassword: "",
@@ -92,7 +92,7 @@ const VerifyResetPassword = () => {
           <Link
             href='/login'
             className='mt-6 px-6 py-2 text-white bg-[#3F51B5] hover:bg-blue-700 rounded-lg font-semibold transition'>
-            Go to Login
+            Back to Home
           </Link>
         </div>
       ) : (
