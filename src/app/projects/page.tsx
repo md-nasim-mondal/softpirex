@@ -60,7 +60,7 @@ const page = () => {
   };
 
   return (
-    <main className="min-h-screen flex flex-col justify-between bg-gray-900  text-white">
+    <main className="min-h-screen flex flex-col justify-between bg-gradient-to-br from-gray-900 to-black  text-white">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaData) }}
@@ -83,7 +83,7 @@ const page = () => {
         <h2 className="text-2xl font-semibold mb-4">
           Why Choose SoftPirex for Web Development?
         </h2>
-        <p className="text-[#3F51B5] max-w-3xl mx-auto">
+        <p className="text-gray-300 max-w-3xl mx-auto">
           Our portfolio demonstrates expertise in modern web technologies
           including React, Next.js, Node.js, and headless CMS implementations.
           We deliver:

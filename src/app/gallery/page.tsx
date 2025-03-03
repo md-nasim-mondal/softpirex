@@ -1,3 +1,4 @@
+import SectionHeader from "@/components/reusable/SectionHeader";
 import Image from "next/image";
 import React from "react";
 
@@ -5,24 +6,18 @@ const Page = () => {
   return (
     <>
       {/* Title Section */}
-      <div className="w-full h-40 text-center flex flex-col items-center justify-center relative">
-        {/* Background Layer */}
-        <div
-          className="absolute inset-0 bg-cover bg-no-repeat "
-          style={{ backgroundImage: "url('/assets/images/title.jpg')" }}
-        ></div>
-
-        {/* Content Layer */}
-        <div className="relative z-10 mt-6 md:mt-0">
-          <h2 className="text-4xl text-white font-bold">Our Gallery</h2>
-          <p className="text-lg font-semibold text-white mt-5">
-            We are a team of talented developers making the best web and mobile
-            applications.
-          </p>
-        </div>
+      <div className="">
+        <SectionHeader>
+          <div className="container mx-auto text-center">
+            <h2 className="text-4xl text-white font-bold">Our Gallery</h2>
+            <p className="text-lg font-semibold text-white mt-5">
+              We are a team of talented developers making the best web and
+              mobile applications.
+            </p>
+          </div>
+        </SectionHeader>
       </div>
 
-      {/* Gallery Section */}
       <div className="relative min-h-screen py-10 md:py-16">
         {/* Background Layer */}
         <div
