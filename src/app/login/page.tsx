@@ -87,7 +87,7 @@ const Login = () => {
           </div>
           <form
             onSubmit={handleSubmit(handleLogin)}
-            className='w-full flex flex-col px-4 lg:px-8 py-4 lg:py-6 shadow-lg shadow-blue-500 border border-white rounded-md'>
+            className='w-full flex flex-col px-4 lg:px-8 py-4 lg:py-6 shadow-custom rounded-lg'>
             <h2 className='text-xl md:text-2xl font-medium font-kreonSerif'>
               Login with Email & Password
             </h2>
