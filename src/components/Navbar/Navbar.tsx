@@ -39,14 +39,13 @@ const Navbar = () => {
               key={index}
               className={`relative ${
                 pathname === link.path
-                  ? "text-[#3F51B5] bg-gray-800 rounded-lg py-1 px-3" // Active link style
+                  ? "text-[#495dd1] bg-gray-900 rounded-lg py-1 px-3" // Active link style
                   : "hover:text-blue-400 transition duration-300"
               }`}
             >
               <Link href={link.path}>{link.name}</Link>
-              {/* Active Link Underline */}
               {pathname === link.path && (
-                <span className="absolute bottom-0 left-0 w-full h-1 bg-[#3F51B5] transition-all duration-300"></span>
+                <span className="absolute bottom-0 left-0 w-full h-1 bg-[#495dd1] transition-all duration-300"></span>
               )}
             </li>
           ))}
