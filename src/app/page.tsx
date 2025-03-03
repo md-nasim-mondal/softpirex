@@ -14,8 +14,8 @@ export default function Home() {
       <Banner />
       <FeaturesSection />
       <HeroSection />
-      <CoreFeatures></CoreFeatures>
-      <Template></Template>
+      <CoreFeatures/>
+      <Template/>
       <SellYourProducts/>
       <ClientsReviews/>
       <Process/>

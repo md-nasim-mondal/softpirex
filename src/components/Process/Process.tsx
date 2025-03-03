@@ -1,5 +1,3 @@
-"use client";
-
 import WorkProcess from "@/components/Process/WorkProcess";
 import Image from "next/image";
 import React from "react";
@@ -8,8 +6,9 @@ const Process: React.FC = () => {
   return (
     <section className=" mt-20 py-20 container mx-auto px-4 text-white">
       <h1 className="text-4xl font-bold text-[#3F51B5]">
-        This is <span className="line-through">not</span> the{" "}
-        <span className="italic font-serif">genuine</span> <br /> story
+        This is the
+        <br />
+        <span>genuine story</span>
       </h1>
       <div className="mt-8 md:mt-24 flex flex-col md:flex-row justify-between items-center px-4 md:px-40">
         <div className="">

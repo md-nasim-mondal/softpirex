@@ -53,7 +53,7 @@ const Navbar = () => {
         </ul>
 
         {/* Purchase Button */}
-        <button className="hidden md:flex items-center gap-2 bg-[#3F51B5] hover:bg-blue-700 text-white px-5 py-2 rounded-lg font-semibold transition duration-300">
+        <Link href="/contacts" className="hidden md:flex items-center gap-2 bg-[#3F51B5] hover:bg-blue-700 text-white px-5 py-2 rounded-lg font-semibold transition duration-300">
           Order Now
           <motion.span
             initial={{ rotate: 45 }}
@@ -62,7 +62,7 @@ const Navbar = () => {
           >
             ↗
           </motion.span>
-        </button>
+        </Link>
 
         {/* Mobile Menu Button */}
         <button className="md:hidden" onClick={() => setIsOpen(true)}>
@@ -110,18 +110,17 @@ const Navbar = () => {
         ))}
 
         {/* Mobile Purchase Button */}
-        <button
+        <Link href="/contacts"
           onClick={() => setIsOpen(false)}
           className="bg-[#3F51B5] hover:bg-blue-700 text-white px-5 py-2 rounded-lg font-semibold transition duration-300"
         >
           Order Now ↗
-        </button>
+        </Link>
       </motion.div>
     </nav>
   );
 };
 
 // contact page modified"
-
 
 export default Navbar;
