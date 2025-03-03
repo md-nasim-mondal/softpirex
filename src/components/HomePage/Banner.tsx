@@ -47,8 +47,8 @@ export default function Banner() {
             Created by Creative Heroes
           </p>
           <h1 className="text-3xl lg:text-5xl font-bold mt-4">
-            We Are Development <br />
-            Agency Softpirex
+            We Are Softpirex <br />
+            Development Agency
           </h1>
 
           <Link href="/projects">

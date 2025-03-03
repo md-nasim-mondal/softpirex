@@ -16,7 +16,7 @@ const features = [
   },
   {
     image: 'https://i.ibb.co.com/R40XSxrx/features3.png',
-    title: 'Top Notch Template Performance',
+    title: 'Top Notch Performance',
     description: 'A high-performing theme is crucial for retaining visitors, improving search engine rankings, and enhancing overall site performance.',
   },
 ];
