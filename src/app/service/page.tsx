@@ -46,20 +46,15 @@ const ServiceSection = () => {
     <main className=" text-white">
       <ServicesHeader>
         <article className="container mx-auto text-center py-6">
-          <h2 className="text-xl font-bold text-blue-600 underline ">
-            Our Services
-          </h2>
-          <h2 className="text-4xl mt-2 font-bold ">
-            What We <span className="text-blue-600"> Served</span>
-          </h2>
-          <p className="mt-4 text-sm w-full md:w-[80%] mx-auto">
+          <h2 className="text-4xl mt-2 font-bold">Our Services</h2>
+          <p className="text-lg font-semibold text-white mt-5 w-full md:w-[80%] mx-auto">
             We are totally focused on delivering high quality Cloud Service &
-            software solution. Bug Finder is one of the pioneers in providing
-            I.T. infrastructure and solutions on various platforms.
+            software solution.
           </p>
         </article>
       </ServicesHeader>
-      <section className="min-h-screen bg-gradient-to-r from-gray-900 to-black">
+
+      <section className="min-h-screen flex items-center justify-center bg-gradient-to-r from-gray-900 to-black">
         <div className="container mx-auto py-16 grid md:grid-cols-3 gap-16">
           {services.map((service, index) => (
             <ServicesCard key={index} index={index} service={service} />

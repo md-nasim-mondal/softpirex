@@ -68,21 +68,11 @@ const page = () => {
 
       <ServicesHeader>
         <article className="container mx-auto text-center py-6">
-          <h2 className="text-xl font-bold text-blue-600 underline">
-            Successful Projects
-          </h2>
-          <h2 className="text-4xl mt-2 font-bold ">
-            Transform your idea into real with{" "}
-            <strong className="text-blue-600">softpirex</strong>
-          </h2>
+          <h2 className="text-4xl mt-2 font-bold">Successful Projects</h2>
 
-          <p className="mt-4 text-sm w-full md:w-[80%] mx-auto">
-            Explore our curated collection of web development projects
-            showcasing custom website solutions, e-commerce platforms, and
-            enterprise web applications. As a leading web development agency, we
-            specialize in creating responsive, user-friendly websites that drive
-            business growth and enhance digital presence across various
-            industries.
+          <p className="text-lg font-semibold text-white mt-5 w-full md:w-[80%] mx-auto">
+            The Industry Standard Projects We Have completed Before with
+            Reputation
           </p>
         </article>
       </ServicesHeader>
