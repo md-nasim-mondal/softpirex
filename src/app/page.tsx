@@ -7,6 +7,7 @@ import InnerPage from "@/components/HomePage/InnerPage";
 
 import SellYourProducts from "@/components/HomePage/SellYourProducts";
 import Template from "@/components/HomePage/Template";
+import Process from "@/components/Process/Process";
 
 export default function Home() {
   return (
@@ -19,6 +20,7 @@ export default function Home() {
       <Template></Template>
       <SellYourProducts/>
       <ClientsReviews/>
+      <Process/>
     </div>
   );
 }

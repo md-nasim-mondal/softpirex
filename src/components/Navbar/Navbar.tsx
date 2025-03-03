@@ -16,10 +16,7 @@ const Navbar = () => {
     { name: "PROJECTS", path: "/projects" },
     { name: "SERVICE", path: "/service" },
     { name: "GALLERY", path: "/gallery" },
-    { name: "PROCESS", path: "/process" },
     { name: "CONTACT", path: "/contact" },
-    { name: "LOGIN", path: "/login" },
-    { name: "REGISTER", path: "/register" },
   ];
 
   return (
@@ -27,7 +24,12 @@ const Navbar = () => {
       <div className="max-w-7xl mx-auto flex justify-between items-center">
         {/* Logo */}
         <Link href="/" className="flex items-center space-x-2">
-          <Image src="/icons/logo.png" alt="Softpirex" height={50} width={150} />
+          <Image
+            src="/icons/logo.png"
+            alt="Softpirex"
+            height={50}
+            width={150}
+          />
         </Link>
 
         {/* Desktop Menu */}
