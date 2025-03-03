@@ -1,6 +1,6 @@
 "use client";
 import { resetPasswordAction } from "@/actions/resetPasswordActions";
-import Modal from "@/components/ui/Modal";
+import Modal from "@/components/reusable/ui/Modal";
 import type React from "react";
 import { useState } from "react";
 import toast from "react-hot-toast";
