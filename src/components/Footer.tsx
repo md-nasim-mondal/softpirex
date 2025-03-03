@@ -1,13 +1,14 @@
 import React from "react";
-import { TextHoverEffectDemo } from "./TextHoverEffectDemo";
 
 const Footer = () => {
+  const date = new Date()
+  const year = date.getFullYear()
   return (
-    <footer className="w-full pt-10 px-5 lg:px-20 bg-black text-white">
+    <footer className="w-full pt-10 px-5 lg:px-20 bg-gray-900 text-white">
       <div className="container mx-auto flex flex-col lg:flex-row justify-between items-start lg:items-center">
         <div>
           <h2 className="text-lg font-bold">SOFTPIREX</h2>
-          <p className="text-sm text-gray-400">Made by SOFTPIREX</p>
+          <p className="text-sm text-gray-400">Made by Softpirex</p>
         </div>
         <div className="mt-5 lg:mt-0 grid grid-cols-1 md:grid-cols-3 gap-10 text-gray-300">
           <div>
@@ -49,13 +50,13 @@ const Footer = () => {
             <h3 className="font-bold">Company</h3>
             <ul className="mt-2 space-y-1">
               <li>
-                <a href="#" className="hover:text-white">
-                  About Us
+                <a href="/register" className="hover:text-white">
+                  Register
                 </a>
               </li>
               <li>
-                <a href="#" className="hover:text-white">
-                  Works
+                <a href="login" className="hover:text-white">
+                  Login
                 </a>
               </li>
               <li>
@@ -73,11 +74,10 @@ const Footer = () => {
         </div>
       </div>
       <div
-        className={` border-t border-gray-700 mt-5 pt-5 text-gray-400 text-sm`}
+        className={`container mx-auto border-t border-gray-700 mt-5 pt-5 text-gray-400 text-sm`}
       >
-        &copy; 2025 SOFTPIREX Inc. All rights reserved.
+        &copy; {year} Softpirex  All rights reserved.
       </div>
-      <TextHoverEffectDemo />
     </footer>
   );
 };

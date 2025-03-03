@@ -74,11 +74,11 @@ const Login = () => {
 
   return (
     <>
-      <section className='mx-6 md:mx-10 py-2 md:py-8 p-2 md:px-4 flex flex-col items-center'>
+      <section className='py-2 md:py-8 p-2 md:px-4 flex flex-col items-center  bg-gradient-to-r from-gray-900 to-black text-white min-h-screen'>
         <h2 className='text-2xl md:text-4xl font-semibold text-center mb-8 font-kreonSerif'>
           Please, Login
         </h2>
-        <div className='flex-1 flex flex-col items-center gap-2 lg:w-1/2'>
+        <div className='flex-1 flex flex-col items-center gap-2  lg:w-1/2'>
           <SocialLogin />
           <div className='flex items-center w-full my-4'>
             <hr className='w-full dark:text-gray-600' />
@@ -87,7 +87,7 @@ const Login = () => {
           </div>
           <form
             onSubmit={handleSubmit(handleLogin)}
-            className='w-full flex flex-col px-4 lg:px-8 py-4 lg:py-6 shadow-lg shadow-blue-500 border border-white rounded-md'>
+            className='w-full flex flex-col px-4 lg:px-8 py-4 lg:py-6 shadow-custom rounded-lg'>
             <h2 className='text-xl md:text-2xl font-medium font-kreonSerif'>
               Login with Email & Password
             </h2>

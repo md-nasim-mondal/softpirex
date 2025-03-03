@@ -29,15 +29,16 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang='en' data-theme='light'>
+    <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
+        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+      >
         <AuthProvider>
           <Suspense>
-            <div className='sticky top-0 left-0 w-full z-50'>
+            <div className="sticky top-0 left-0 w-full z-50">
               <Navbar />
             </div>
-            <div className='min-h-[calc(100vh - 780px)]'>{children}</div>
+            <div className="min-h-[calc(100vh - 780px)]">{children}</div>
             <Footer />
           </Suspense>
         </AuthProvider>

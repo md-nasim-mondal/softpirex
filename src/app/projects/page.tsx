@@ -1,4 +1,5 @@
 import Projects from "@/components/projectsPage/Projects";
+import ServicesHeader from "@/components/reusable/SectionHeader";
 import React from "react";
 
 export const metadata = {
@@ -59,29 +60,22 @@ const page = () => {
   };
 
   return (
-    <main className="min-h-screen bg-gray-900  text-white">
+    <main className="min-h-screen flex flex-col justify-between bg-gray-900  text-white">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaData) }}
       />
 
-      <section className="container mx-auto text-center space-y-5">
-        <p className="text-xl text-blue-600 underline underline-offset-8">
-          Web Development Success Stories
-        </p>
-        <h1 className="text-2xl md:text-3xl lg:text-5xl font-bold mb-4">
-          Transforming Digital Ideas Into Successful Websites with{" "}
-          <strong className="text-blue-600">SoftPirex</strong>
-        </h1>
+      <ServicesHeader>
+        <article className="container mx-auto text-center py-6">
+          <h2 className="text-4xl mt-2 font-bold">Successful Projects</h2>
 
-        <p className="text-lg font-light w-[80%] mx-auto">
-          Explore our curated collection of web development projects showcasing
-          custom website solutions, e-commerce platforms, and enterprise web
-          applications. As a leading web development agency, we specialize in
-          creating responsive, user-friendly websites that drive business growth
-          and enhance digital presence across various industries.
-        </p>
-      </section>
+          <p className="text-lg font-semibold text-white mt-5 w-full md:w-[80%] mx-auto">
+            The Industry Standard Projects We Have completed Before with
+            Reputation
+          </p>
+        </article>
+      </ServicesHeader>
 
       <Projects />
 

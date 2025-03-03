@@ -51,7 +51,9 @@ const Contacts: FC = () => {
   return (
     <div className="container mx-auto text-white py-16 px-8 flex flex-col md:flex-row justify-center items-center gap-12 bg-gradient-to-l from-black via-gray-900 to-black rounded-lg ">
       <section className="w-full md:w-1/3">
-        <h2 className="text-4xl font-semibold text-blue-600 mb-4">Get in Touch</h2>
+        <h2 className="text-4xl font-semibold text-blue-600 mb-4">
+          Get in Touch
+        </h2>
         <p className="mt-2 text-gray-400 text-lg">
           Have a question or want to work together? Drop us a message!
         </p>

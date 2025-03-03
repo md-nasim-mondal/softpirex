@@ -4,7 +4,7 @@ import { FaDesktop, FaTabletAlt, FaMobileAlt } from "react-icons/fa";
 
 const Template: React.FC = () => {
   return (
-    <section className="relative bg-[#3F51B5] text-white py-16 px-6">
+    <section className="relative bg-blue-600 text-white py-16 px-6">
       {/* Background Circles */}
       <div className="absolute top-1/3 left-1/4 w-80 h-80 bg-white/10 rounded-full blur-2xl"></div>
       <div className="absolute bottom-1/4 right-1/4 w-60 h-60 bg-white/10 rounded-full blur-2xl"></div>

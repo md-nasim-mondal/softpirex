@@ -4,10 +4,10 @@ import WorkProcess from "@/components/Process/WorkProcess";
 import Image from "next/image";
 import React from "react";
 
-const LandingSection: React.FC = () => {
+const Process: React.FC = () => {
   return (
-    <section className="min-h-screen bg-gray- mt-20 py-20 container mx-auto px-4">
-      <h1 className="text-4xl md:text-7xl lg:text-8xl font-bold text-blue-600">
+    <section className=" mt-20 py-20 container mx-auto px-4 text-white">
+      <h1 className="text-4xl font-bold text-blue-600">
         This is <span className="line-through">not</span> the{" "}
         <span className="italic font-serif">genuine</span> <br /> story
       </h1>
@@ -42,4 +42,4 @@ const LandingSection: React.FC = () => {
   );
 };
 
-export default LandingSection;
+export default Process;
