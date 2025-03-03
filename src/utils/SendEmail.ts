@@ -77,7 +77,7 @@ export const SendEmail = async (
           extraData.message
         );
 
-        // ✅ Send Email to softpirex
+        // ✅ Send Email only to softpirex
         await transporter.sendMail({
           from: process.env.GMAIL_USER as string,
           to: toEmail,
