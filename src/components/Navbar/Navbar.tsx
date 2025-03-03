@@ -54,7 +54,7 @@ const Navbar = () => {
 
         {/* Purchase Button */}
         <button className="hidden md:flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white px-5 py-2 rounded-lg font-semibold transition duration-300">
-          Purchase Now
+          Order Now
           <motion.span
             initial={{ rotate: 45 }}
             whileHover={{ rotate: 0 }}
@@ -114,7 +114,7 @@ const Navbar = () => {
           onClick={() => setIsOpen(false)}
           className="bg-blue-600 hover:bg-blue-700 text-white px-5 py-2 rounded-lg font-semibold transition duration-300"
         >
-          Purchase Now ↗
+          Order Now ↗
         </button>
       </motion.div>
     </nav>
