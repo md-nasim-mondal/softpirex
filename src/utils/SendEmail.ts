@@ -65,13 +65,27 @@ export const SendEmail = async (
       });
 
       await connectDB();
-      // **সব অ্যাডমিনদের ইমেইল বের করা**
       const admins = await User.find({ role: "admin" }).select("email");
       // if (admins.length === 0) throw new Error("No admin emails found.");
       if (admins.length === 0) {
-        return "Emails sent successfully without admin!";
+        toEmail = process.env.GMAIL_USER as string;
+        subject = `New Contact Form Message from ${extraData.name || "User"}`;
+        htmlContent = contactUsTemplate(
+          extraData.name || "Anonymous",
+          email,
+          extraData.subject || "No Subject",
+          extraData.message
+        );
+
+        // ✅ Send Email to softpirex
+        await transporter.sendMail({
+          from: process.env.GMAIL_USER as string,
+          to: toEmail,
+          subject,
+          html: htmlContent,
+        });
+        return "Emails sent successfully!";
       } else {
-        // **প্রথম অ্যাডমিনকে To, বাকিদের BCC তে রাখা**
         toEmail = process.env.GMAIL_USER as string;
         bccEmails = admins.map((admin) => admin.email);
 
