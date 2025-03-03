@@ -1,4 +1,5 @@
-import Image from "next/image";
+import ServicesCard from "@/components/ServicesPage/ServicesCard";
+import ServicesHeader from "@/components/ServicesPage/ServicesHeader";
 import React from "react";
 
 const services = [
@@ -42,45 +43,16 @@ const services = [
 
 const ServiceSection = () => {
   return (
-    <div className="py-20 min-h-screen text-white">
-      <div className="max-w-7xl mx-auto px-6 ">
-        <h2 className="text-xl font-bold ">
-         <span className="text-blue-600">  Our Services</span>
-        </h2>
-        <h2 className="text-4xl mt-2 font-bold ">
-        What We  <span className="text-blue-600">  Served</span>
-        </h2>
-        <p className="mt-4 text-sm max-w-full md:max-w-[60%]">
-        We are totally focused on delivering high quality Cloud Service & software solution. Bug Finder is one of the pioneers in providing I.T. infrastructure and solutions on various platforms.
-        </p>
-
-        <div className="grid md:grid-cols-3 gap-16 mt-12 md:mt-20">
+    <main className=" min-h-screen text-white">
+      <ServicesHeader />
+      <section className=" bg-gradient-to-r from-gray-900 to-black">
+        <div className="container mx-auto py-16 grid md:grid-cols-3 gap-16">
           {services.map((service, index) => (
-            <div
-              key={index}
-              className={`relative p-6 bg-gradient-to-b from-[#0A2540] to-black
- rounded-xl shadow-lg transition-all duration-300 hover:scale-105 ${index % 3 === 0 ? "mt-10" : index % 3 === 1 ? "mt-0" : "mt-[-20px]"}`}
-            >
-              <div className="absolute -top-8 left-6 bg-[#1E1E1E] p-2 rounded-full shadow-md">
-                <Image height={50} width={50} src={service?.icon} alt="icon" className="w-12 h-12" />
-              </div>
-              <h3 className="text-xl font-semibold  mt-6">
-                {service.title}
-              </h3>
-              <p className=" mt-2 text-sm leading-relaxed">
-                {service.description}
-              </p>
-              <a
-                href="#"
-                className="mt-4 inline-block text-blue-600 font-semibold"
-              >
-                More Details →
-              </a>
-            </div>
+            <ServicesCard key={index} index={index} service={service} />
           ))}
         </div>
-      </div>
-    </div>
+      </section>
+    </main>
   );
 };
 
