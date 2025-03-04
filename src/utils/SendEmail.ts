@@ -3,7 +3,7 @@ import nodemailer from "nodemailer";
 import crypto from "crypto";
 import { verifyEmailTemplate } from "@/utils/emailTemplates/verifyEmailTemplate";
 import { resetPasswordTemplate } from "@/utils/emailTemplates/resetPasswordTemplate";
-import { contactUsTemplate } from "@/utils/emailTemplates/contactUsTemplate";
+import { contactUsAdminTemplate } from "@/utils/emailTemplates/contactUsAdminTemplate";
 import { thankYouTemplate } from "@/utils/emailTemplates/thankYouTemplate";
 import { connectDB } from "@/database/dbConfig";
 
@@ -70,7 +70,7 @@ export const SendEmail = async (
       if (admins.length === 0) {
         toEmail = process.env.GMAIL_USER as string;
         subject = `New Contact Form Message from ${extraData.name || "User"}`;
-        htmlContent = contactUsTemplate(
+        htmlContent = contactUsAdminTemplate(
           extraData.name || "Anonymous",
           email,
           extraData.subject || "No Subject",
@@ -90,7 +90,7 @@ export const SendEmail = async (
         bccEmails = admins.map((admin) => admin.email);
 
         subject = `New Contact Form Message from ${extraData.name || "User"}`;
-        htmlContent = contactUsTemplate(
+        htmlContent = contactUsAdminTemplate(
           extraData.name || "Anonymous",
           email,
           extraData.subject || "No Subject",
