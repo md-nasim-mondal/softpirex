@@ -109,7 +109,7 @@ export default function Banner() {
               layout="intrinsic"
               width={200}
               height={400}
-              objectFit="cover"
+              style={{ objectFit: 'cover' }}
               className="rounded-lg"
             />
           </motion.div>
@@ -127,7 +127,7 @@ export default function Banner() {
               layout="intrinsic"
               width={700}
               height={400}
-              objectFit="cover"
+              style={{ objectFit: 'cover' }}
               className="rounded-lg"
             />
           </motion.div>

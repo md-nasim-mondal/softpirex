@@ -1,4 +1,4 @@
-export const contactUsTemplate = (
+export const contactUsAdminTemplate = (
   name: string,
   email: string,
   subject: string,
