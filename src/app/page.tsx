@@ -10,7 +10,7 @@ import Process from "@/components/Process/Process";
 
 export default function Home() {
   return (
-    <div className="bg-black">
+    <div className="bg-black w-full mx-auto overflow-x-hidden">
       <Banner />
       <FeaturesSection />
       <HeroSection />

@@ -40,7 +40,7 @@ export default function Banner() {
       viewport={{ amount: 0.2 }}
     >
       {/* Container for images and text */}
-      <div className="flex container flex-col md:flex-row items-center justify-between w-full mt-12 space-y-6 md:space-y-0">
+      <div className="flex container mx-auto flex-col md:flex-row items-center justify-between w-full mt-12 space-y-6 md:space-y-0">
         {/* Text Section */}
         <div className="text-left md:w-2/3">
           <p className="text-lg text-gray-400 font-bold uppercase">

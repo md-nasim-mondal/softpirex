@@ -13,7 +13,7 @@ const images = [
 export default function HeroSection() {
   return (
     <section className="relative bg-[#0A0A14] text-white py-16 md:py-32 overflow-hidden">
-      <div className="max-w-6xl mx-auto px-6 md:px-10 relative text-center">
+      <div className="container mx-auto px-6 md:px-10 relative text-center">
         <p className="text-white uppercase mb-4">Build With Incredible</p>
         <h1 className="text-4xl md:text-6xl font-bold leading-tight">
           <span className="relative inline-block">

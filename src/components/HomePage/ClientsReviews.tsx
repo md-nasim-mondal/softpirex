@@ -4,7 +4,7 @@ import Marquee from "react-fast-marquee";
 
 const ClientsReviews: FC = () => {
   return (
-    <div className="bg-[#02050A]">
+    <div className="container mx-auto">
       <div className="text-center mb-12 text-white pt-24 space-y-6 ">
         <p className=" uppercase">Build With Incredible</p>
         <h2 className="text-3xl font-bold">Our clients Feedback</h2>
